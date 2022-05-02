@@ -75,16 +75,16 @@ public class EvenementsRest {
 		//	return println("Veuillez vous connecter");
 	//}
 	
-	//@PostMapping("Evenements")
-	//public Evenements saveEvenement(@RequestBody Evenements e) {
+	@PostMapping("Evenements")
+	public Evenements saveEvenement(@RequestBody Evenements e) {
 		//if (Activites.nom contains(e.nomActivite)) {
-	//	if (activitesRepo.findBy) {
+		if (Optional.ofNullable(activitesRepo.findByNom(e.nom) =! NULL) {
 	//		return eventRepo.save(e);
 			
 	//	}else {
 		//	System.out.print("Veuillez renseignez une activité existante ou créez en une");
 	//	}
-	//}
+	}
 
 	//@PostMapping("person/login")
 	//public Optional<Person> OnePerson(@RequestBody Person p) {
