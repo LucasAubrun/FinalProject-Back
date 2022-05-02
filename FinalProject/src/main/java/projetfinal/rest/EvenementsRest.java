@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.solutec.entities.Person;
 //import fr.solutec.entities.Person;
 //import fr.solutec.entities.Person;
 //import fr.solutec.entities.Memo;
@@ -75,20 +76,32 @@ public class EvenementsRest {
 		//	return println("Veuillez vous connecter");
 	//}
 	
-	@PostMapping("Evenements")
-	public Evenements saveEvenement(@RequestBody Evenements e) {
+	//@PostMapping("Evenements")
+	//public Evenements saveEvenement(@RequestBody Evenements e) {
 		//if (Activites.nom contains(e.nomActivite)) {
-		if (Optional.ofNullable(activitesRepo.findByNom(e.nom) =! NULL) {
+	//	if (Optional.ofNullable(activiteRepo.findByNom(e.nomActivite) =! NULL) {
 	//		return eventRepo.save(e);
 			
 	//	}else {
-		//	System.out.print("Veuillez renseignez une activité existante ou créez en une");
+	//		System.out.print("Veuillez renseignez une activité existante ou créez en une");
 	//	}
-	}
+	//}
 
 	//@PostMapping("person/login")
 	//public Optional<Person> OnePerson(@RequestBody Person p) {
 	//	return Optional.ofNullable(personRepo.findByLoginAndPassword(p.getLogin(), p.getPassword()));
+	
+	@DeleteMapping("Evenements/MesEvenements/{id}")
+	public boolean deleteEvent(@PathVariable Long id) {
+		
+		Optional<Evenements> e = eventRepo.findById(id);
+		if(e.isPresent() ) {
+			eventRepo.deleteById(id);
+			return true;
+		}else {
+			return false;
+		}
+	}
 	
 	
 }
