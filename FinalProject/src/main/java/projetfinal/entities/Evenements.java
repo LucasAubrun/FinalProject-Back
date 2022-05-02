@@ -27,6 +27,7 @@ public class Evenements {
 	private String description;
 	private Integer nbMin;
 	private Integer nbMax;
+	public String nomActivite;
 	
 	@ManyToOne
 	private Activites activite;
