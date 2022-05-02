@@ -6,6 +6,6 @@ import projetfinal.entities.Equipes;
 
 
 
-public interface EquipeRepository extends CrudRepository<Equipes, Long> {
+public interface EquipesRepository extends CrudRepository<Equipes, Long> {
 
 }
