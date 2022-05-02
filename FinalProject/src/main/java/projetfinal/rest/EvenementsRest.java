@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 //import fr.solutec.entities.Person;
+//import fr.solutec.entities.Person;
 //import fr.solutec.entities.Memo;
 import projetfinal.entities.Evenements;
 import projetfinal.repository.EvenementsRepository;
@@ -25,8 +26,12 @@ import projetfinal.repository.ActivitesRepository;
 
 @RestController @CrossOrigin("*")
 public class EvenementsRest {
+	
 	@Autowired
 	private EvenementsRepository eventRepo;
+	
+	@Autowired
+	private ActivitesRepository activiteRepo;
 
 	
 	
@@ -55,18 +60,35 @@ public class EvenementsRest {
 		return eventRepo.findByNbMax(nbMax);
 	}
 	
-	@GetMapping("memo/activites/{nom}")
-	public List<Evenements> EventByActivities(@PathVariable String nom) { 
-		return eventRepo.findByActivitesNom(nom);
+	@GetMapping("Evenements/{nomActivite}")
+	public List<Evenements> EventByActivites(@PathVariable String nomActivite) { 
+		return eventRepo.findByNomActivite(nomActivite);
 	}
 	
 	///////////////////////////////////////////
 	
-	@PostMapping("Evenements")
-	public Evenements saveEvenement(@RequestBody Evenements e) {
-		return eventRepo.save(e);
-	}
+	//@PostMapping("Evenements")
+	//public Evenements saveEvenement(@RequestBody Evenements e, Activites.nom n) {
+		//if() :
+	//	return eventRepo.save(e);
+		//else :
+		//	return println("Veuillez vous connecter");
+	//}
 	
+	//@PostMapping("Evenements")
+	//public Evenements saveEvenement(@RequestBody Evenements e) {
+		//if (Activites.nom contains(e.nomActivite)) {
+	//	if (activitesRepo.findBy) {
+	//		return eventRepo.save(e);
+			
+	//	}else {
+		//	System.out.print("Veuillez renseignez une activité existante ou créez en une");
+	//	}
+	//}
+
+	//@PostMapping("person/login")
+	//public Optional<Person> OnePerson(@RequestBody Person p) {
+	//	return Optional.ofNullable(personRepo.findByLoginAndPassword(p.getLogin(), p.getPassword()));
 	
 	
 }
