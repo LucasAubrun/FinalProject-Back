@@ -18,9 +18,9 @@ public class Activites {
 	private Long id;
 	private String nom;
 	private String description;
-	private Integer joueurs;
+	private Integer nbJoueurs;
 	private String type;
-	private Boolean valider;
+	private Boolean valide;
 	
 	
 	
