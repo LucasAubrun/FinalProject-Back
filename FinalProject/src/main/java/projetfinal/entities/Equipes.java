@@ -5,24 +5,28 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+
 @AllArgsConstructor @NoArgsConstructor @Data
 @Entity
-public class Activites {
+public class Equipes {
 	
 	@Id @GeneratedValue
-	private Long id;
+	private long id;
 	private String nom;
-	private String description;
-	private Integer nbJoueurs;
-	private String type;
-	private Boolean valide;
 	
-	
-	
+	@ManyToOne
+	// @JoinColumn( name = "menbres_id", referencedColumnName= "id")
+	private Membres Membres;
 
 }
+//test
