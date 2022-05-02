@@ -3,6 +3,9 @@ package projetfinal;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import projetfinal.entities.Equipes;
+import projetfinal.repository.EquipesRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
@@ -17,6 +20,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 	//@Autowired
 	//private MemoRepository memoRepo;
 	
+	@Autowired
+	private EquipesRepository equipesRepo;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(FinalProjectApplication.class, args);
 		System.out.println("lancement est terminé");
@@ -25,5 +31,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("lancement en cours");
+		
+//		Equipes e1 = new Equipes(null, "Solutec Gang", m1);
+//		equipesRepo.save(e1);
+		
 	}
 }
