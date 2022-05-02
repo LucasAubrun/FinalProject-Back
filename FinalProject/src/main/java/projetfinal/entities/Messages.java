@@ -3,6 +3,7 @@ package projetfinal.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +14,11 @@ import lombok.NoArgsConstructor;
 
 public class Messages {
 	@GeneratedValue
-	String contenu;
+	private long id;
+	private String contenu;
+	
+	@OneToOne
+	private Membres membre;
 	
 	
 }
