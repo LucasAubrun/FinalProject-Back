@@ -7,3 +7,4 @@ import projetfinal.entities.Admins;
 public interface AdminsRespository extends CrudRepository<Admins, Long> {
 
 }
+//d
