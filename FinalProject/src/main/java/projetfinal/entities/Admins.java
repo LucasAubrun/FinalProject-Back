@@ -1,6 +1,9 @@
 package projetfinal.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
@@ -10,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Admins {
 	
+	@Id @GeneratedValue
 	private long id;
 	private String nom;
 	private String prenom;
@@ -17,7 +21,7 @@ public class Admins {
 	private String mdp;
 	private String login;
 	
-	@OneToMany
+	@ManyToOne
 	private Activites activite;
 
 }
