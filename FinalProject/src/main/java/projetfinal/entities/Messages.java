@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Entity
 
 public class Messages {
-	@GeneratedValue
+	@Id @GeneratedValue
 	private long id;
 	private String contenu;
 	
