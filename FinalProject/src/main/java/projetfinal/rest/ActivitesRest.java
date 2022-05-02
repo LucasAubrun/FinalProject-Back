@@ -22,22 +22,22 @@ public class ActivitesRest {
 		return actiRepo.save(a);
 	}
 	
-	@GetMapping("")
+	@GetMapping("activites/all")
 	public Iterable<Activites> allActivies(){
 		return actiRepo.findAll();
 	}
 	
-	@GetMapping("nbJoueurs")
+	@GetMapping("activites/nbJoueurs")
 	public Iterable<Activites> nbJoueurs(@RequestBody Integer nombre){
 		return actiRepo.findByNbJoueurs(nombre);
 	}
 	
-	@GetMapping("type")
+	@GetMapping("activites/type")
 	public Iterable<Activites> type(@RequestBody String type){
 		return actiRepo.findByType(type);
 	}
 	
-	@GetMapping("nom")
+	@GetMapping("activites/nom")
 	public Iterable<Activites> nom(@RequestBody String nom){
 		return actiRepo.findByNom(nom);
 	}
