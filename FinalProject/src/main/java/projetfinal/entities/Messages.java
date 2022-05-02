@@ -1,10 +1,9 @@
 package projetfinal.entities;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,17 +11,14 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor @NoArgsConstructor @Data
 @Entity
-public class Activites {
-	
-	@Id @GeneratedValue
-	private Long id;
-	public String nom;
-	private String description;
-	private Integer nbJoueurs;
-	private String type;
-	private Boolean valide;
-	
-	
-	
 
+public class Messages {
+	@Id @GeneratedValue
+	private long id;
+	private String contenu;
+	
+	@OneToOne
+	private Membres membre;
+	
+	
 }
