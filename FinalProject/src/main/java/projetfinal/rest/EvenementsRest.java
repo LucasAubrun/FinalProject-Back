@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 //import fr.solutec.entities.Memo;
 import projetfinal.entities.Evenements;
 import projetfinal.repository.EvenementsRepository;
-//import projetfinal.entities.Membres;
-//import projetfinal.repository.MembresRepository;
+import projetfinal.entities.Membres;
+import projetfinal.repository.MembresRepository;
 import projetfinal.entities.Activites;
+import projetfinal.entities.Associations;
 import projetfinal.repository.ActivitesRepository;
 
 @RestController @CrossOrigin("*")
@@ -104,7 +105,11 @@ public class EvenementsRest {
 	//		return false;
 	//	}
 	//}
-	
+	//Trouver les équipes d'un membre
+	@GetMapping("evenements/membres/{id}")
+	public List<Evenements> FindEvenementsByMembresid(@PathVariable long id){
+		return eventRepo.findByMembresId(id);
+	}
 	
 }
 	
