@@ -21,6 +21,10 @@ public class FinalProjectApplication implements CommandLineRunner {
 		SpringApplication.run(FinalProjectApplication.class, args);
 		System.out.println("lancement est terminé");
 	}
+
+
+
+
 	
 	@Override
 	public void run(String... args) throws Exception {
