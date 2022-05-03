@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.solutec.entities.Person;
-//import fr.solutec.entities.Person;
-//import fr.solutec.entities.Person;
 //import fr.solutec.entities.Memo;
 import projetfinal.entities.Evenements;
 import projetfinal.repository.EvenementsRepository;
@@ -91,18 +88,22 @@ public class EvenementsRest {
 	//public Optional<Person> OnePerson(@RequestBody Person p) {
 	//	return Optional.ofNullable(personRepo.findByLoginAndPassword(p.getLogin(), p.getPassword()));
 	
-	@DeleteMapping("Evenements/MesEvenements/{id}")
-	public boolean deleteEvent(@PathVariable Long id) {
+	//@DeleteMapping("Evenements/MesEvenements/{id}")
+	//public boolean deleteEvent(@PathVariable Long id) {
 		
-		Optional<Evenements> e = eventRepo.findById(id);
-		if(e.isPresent() ) {
-			eventRepo.deleteById(id);
-			return true;
-		}else {
-			return false;
-		}
+	//	Optional<Evenements> e = eventRepo.findById(id);
+	//	if(e.isPresent() ) {
+	//		eventRepo.deleteById(id);
+	//		return true;
+	//	}else {
+	//		return false;
+	//	}
+	//}
+
+	@PostMapping("Evenements")
+	public Evenements saveEvenement(@RequestBody Evenements e) {
+			return eventRepo.save(e);
 	}
-	
 	
 }
 	
