@@ -3,8 +3,17 @@ package projetfinal;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import projetfinal.entities.Associations;
 import projetfinal.entities.Equipes;
+import projetfinal.entities.Membres;
+import projetfinal.repository.AssociationsRepository;
 import projetfinal.repository.EquipesRepository;
+import projetfinal.repository.MembreRepository;
+
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -21,7 +30,13 @@ public class FinalProjectApplication implements CommandLineRunner {
 	//private MemoRepository memoRepo;
 	
 	@Autowired
+	private AssociationsRepository assoRepo;
+	
+	@Autowired
 	private EquipesRepository equipesRepo;
+	
+	@Autowired //a supprimer avant de pull
+	private MembreRepository membreRepo;  //a supprimer avant de pull
 	
 	public static void main(String[] args) {
 		SpringApplication.run(FinalProjectApplication.class, args);
@@ -31,9 +46,39 @@ public class FinalProjectApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("lancement en cours");
+
+		DateFormat d = new SimpleDateFormat("dd/MM/yyyy");  //a supprimer avant de pull (création pour équipe)
+		Date date1 = d.parse("14/01/1997");	  //a supprimer avant de pull	
 		
-//		Equipes e1 = new Equipes(null, "Solutec Gang", m1);
-//		equipesRepo.save(e1);
+		Membres m1 = new Membres( null, "Member1", "Luidi", date1, "luigi@mario", "m1", "m1", 15, 10); //à supprimer créé pour l'équipe
+		Membres m2 = new Membres( null, "Member2", "loukal", date1, "luigi@mario", "m2", "m2", 15, 10); //à supprimer créé pour l'équipe
+		Membres m3 = new Membres( null, "Member3", "popol", date1, "luigi@mario", "m3", "m3", 15, 10); //à supprimer créé pour l'équipe
+		Membres m4 = new Membres( null, "Member4", "padouk", date1, "luigi@mario", "m4", "m4", 15, 10); //à supprimer créé pour l'équipe
+		membreRepo.save(m1);		 //à supprimer créé pour l'équipe
+		membreRepo.save(m2);		 //à supprimer créé pour l'équipe
+		membreRepo.save(m3);		 //à supprimer créé pour l'équipe
+		membreRepo.save(m4);		 //à supprimer créé pour l'équipe
+		
+		Equipes e1 = new Equipes( null, "Solutec Gang", m1); //à supprimer créé pour l'équipe
+		Equipes e2 = new Equipes( null, "La DreamTeam", m1); //à supprimer créé pour l'équipe
+		Equipes e3 = new Equipes( null, "CocoBanana", m3); //à supprimer créé pour l'équipe
+		equipesRepo.save(e1); //à supprimer créé pour l'équipe
+		equipesRepo.save(e2); //à supprimer créé pour l'équipe
+		equipesRepo.save(e3); //à supprimer créé pour l'équipe
+		
+		Associations a1 = new Associations( null, m1, e1);//à supprimer créé pour l'équipe
+		Associations a2 = new Associations( null, m1, e2);//à supprimer créé pour l'équipe
+	    Associations a3 = new Associations( null, m1, e3);//à supprimer créé pour l'équipe
+		Associations a4 = new Associations( null, m2, e1);//à supprimer créé pour l'équipe
+		Associations a5 = new Associations( null, m3, e3);//à supprimer créé pour l'équipe
+		Associations a6 = new Associations( null, m3, e2);//à supprimer créé pour l'équipe
+		assoRepo.save(a1);//à supprimer créé pour l'équipe
+		assoRepo.save(a2);//à supprimer créé pour l'équipe
+		assoRepo.save(a3);//à supprimer créé pour l'équipe
+		assoRepo.save(a4);//à supprimer créé pour l'équipe
+		assoRepo.save(a5);//à supprimer créé pour l'équipe
+		assoRepo.save(a6);//à supprimer créé pour l'équipe
+		
 		
 	}
 }

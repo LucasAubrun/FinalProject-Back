@@ -1,12 +1,8 @@
 package projetfinal.entities;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
-//import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 
@@ -14,19 +10,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
-@AllArgsConstructor @NoArgsConstructor @Data
-@Entity
-public class Equipes {
+@AllArgsConstructor @NoArgsConstructor @Data @Entity
+public class Associations {
 	
 	@Id @GeneratedValue
-	private Long id;
-	private String nom;
+	private Long idEqMb;
+
+	@ManyToOne
+	private Membres membres;
 	
 	@ManyToOne
-	// @JoinColumn( name = "menbres_id", referencedColumnName= "id")
-	private Membres membres;
+	private Equipes equipes;
+	
 
 }
-//test
