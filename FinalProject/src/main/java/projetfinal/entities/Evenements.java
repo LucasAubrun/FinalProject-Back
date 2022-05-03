@@ -33,6 +33,6 @@ public class Evenements {
 	private Activites activite;
 	
 	@ManyToOne
-	private Membres membre;
+	private Membres createur;
 
 }

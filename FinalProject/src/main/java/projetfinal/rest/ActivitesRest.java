@@ -17,7 +17,7 @@ public class ActivitesRest {
 	@Autowired
 	private ActivitesRepository actiRepo;
 	
-	@PostMapping("activites")
+	@PostMapping("activites/save")
 	public Activites saveActivites(@RequestBody Activites a) {
 		return actiRepo.save(a);
 	}
