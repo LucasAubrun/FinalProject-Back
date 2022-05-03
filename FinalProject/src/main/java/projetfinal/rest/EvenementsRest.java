@@ -87,8 +87,13 @@ public class EvenementsRest {
 	//@PostMapping("person/login")
 	//public Optional<Person> OnePerson(@RequestBody Person p) {
 	//	return Optional.ofNullable(personRepo.findByLoginAndPassword(p.getLogin(), p.getPassword()));
+
+	@PostMapping("Evenements/save")
+	public Evenements saveEvenement(@RequestBody Evenements e) {
+			return eventRepo.save(e);
+	}
 	
-	//@DeleteMapping("Evenements/MesEvenements/{id}")
+	//@DeleteMapping("Evenements/supprimer/{id}")
 	//public boolean deleteEvent(@PathVariable Long id) {
 		
 	//	Optional<Evenements> e = eventRepo.findById(id);
@@ -99,11 +104,7 @@ public class EvenementsRest {
 	//		return false;
 	//	}
 	//}
-
-	@PostMapping("Evenements/save")
-	public Evenements saveEvenement(@RequestBody Evenements e) {
-			return eventRepo.save(e);
-	}
+	
 	
 }
 	
