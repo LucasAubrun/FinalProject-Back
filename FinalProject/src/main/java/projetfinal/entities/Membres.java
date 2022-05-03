@@ -2,9 +2,11 @@ package projetfinal.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,8 +21,8 @@ public class Membres {
 	private String nom;
 	private String prenom;
 	private Date dateNaissance;
+	@Column(unique=true)
 	private String mail;
-	private String login;
 	private String mdp;
 	private Integer xp;
 	private Integer score;
