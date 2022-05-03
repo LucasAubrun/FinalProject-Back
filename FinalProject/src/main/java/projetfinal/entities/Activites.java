@@ -16,7 +16,7 @@ public class Activites {
 	
 	@Id @GeneratedValue
 	private Long id;
-	public String nom;
+	private String nom;
 	private String description;
 	private Integer nbJoueurs;
 	private String type;
