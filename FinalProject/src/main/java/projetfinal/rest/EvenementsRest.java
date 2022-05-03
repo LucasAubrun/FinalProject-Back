@@ -100,7 +100,7 @@ public class EvenementsRest {
 	//	}
 	//}
 
-	@PostMapping("Evenements")
+	@PostMapping("Evenements/save")
 	public Evenements saveEvenement(@RequestBody Evenements e) {
 			return eventRepo.save(e);
 	}
