@@ -14,14 +14,12 @@ import lombok.NoArgsConstructor;
 public class Admins {
 	
 	@Id @GeneratedValue
-	private long id;
+	private Long id;
 	private String nom;
 	private String prenom;
 	private String mail;
 	private String mdp;
 	private String login;
 	
-	@ManyToOne
-	private Activites activite;
-
+	
 }

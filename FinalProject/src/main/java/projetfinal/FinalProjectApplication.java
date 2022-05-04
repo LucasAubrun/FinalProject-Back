@@ -3,12 +3,15 @@ package projetfinal;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 import projetfinal.entities.Activites;
+import projetfinal.entities.Admins;
 import projetfinal.entities.Associations;
 import projetfinal.entities.Equipes;
 import projetfinal.entities.Evenements;
 import projetfinal.entities.Membres;
 import projetfinal.repository.ActivitesRepository;
+import projetfinal.repository.AdminsRepository;
 import projetfinal.repository.AssociationsRepository;
 import projetfinal.repository.EquipesRepository;
 import projetfinal.repository.MembresRepository;
@@ -45,6 +48,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 	
 	@Autowired //a supprimer avant de pull
 	private MembresRepository membreRepo;  //a supprimer avant de pull
+	
+	@Autowired
+	private AdminsRepository adminRepo;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(FinalProjectApplication.class, args);
@@ -98,6 +104,11 @@ public class FinalProjectApplication implements CommandLineRunner {
 		Evenements ev2 = new Evenements( null, "Aver2", null, "Aver","Aver","Aver","Aver", 3 ,4, "Aver", act1, m1); //à supprimer créé pour l'évent
 		eventRepo.save(ev1);
 		eventRepo.save(ev2);
+		
+		Admins ad1 = new Admins(null, "Lige", "Terence", "lat@gmail.com", "azerty", "Admin1");
+		adminRepo.save(ad1);
+		
+		
 		
 	}
 }
