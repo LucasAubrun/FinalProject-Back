@@ -1,10 +1,13 @@
 package projetfinal.entities;
 
+import java.sql.Clob;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +25,9 @@ public class Activites {
 	private String type;
 	private Boolean valide;
 	
-	
+	//@ManyToOne
+	//private Activites activite; 
+
 	
 
 }
