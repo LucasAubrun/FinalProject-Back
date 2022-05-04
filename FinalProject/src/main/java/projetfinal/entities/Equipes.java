@@ -2,6 +2,7 @@ package projetfinal.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,12 +22,13 @@ import lombok.NoArgsConstructor;
 public class Equipes {
 	
 	@Id @GeneratedValue
-	private long id;
+	private Long id;
+	@Column(unique=true)
 	private String nom;
 	
 	@ManyToOne
 	// @JoinColumn( name = "menbres_id", referencedColumnName= "id")
-	private Membres Membres;
+	private Membres membres;
 
 }
 //test
