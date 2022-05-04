@@ -18,6 +18,7 @@ import projetfinal.repository.MembresRepository;
 import projetfinal.repository.EvenementsRepository;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,8 +101,8 @@ public class FinalProjectApplication implements CommandLineRunner {
 		Activites act1 = new Activites( null, "AAA", "BBB", 4, "aert", true);
 		actiRepo.save(act1);
 		
-		Evenements ev1 = new Evenements( null, "Aver", null, "Aver","Aver","Aver","Aver", 3, 4, "Aver", act1, m1); //à supprimer créé pour l'évent
-		Evenements ev2 = new Evenements( null, "Aver2", null, "Aver","Aver","Aver","Aver", 3 ,4, "Aver", act1, m1); //à supprimer créé pour l'évent
+		Evenements ev1 = new Evenements( null, "Venez tous", date1, "chez oim","Grosse ambiance","toutes les secondes","tout", 12, 100, "Che pa","creador", act1, m1); //à supprimer créé pour l'évent
+		Evenements ev2 = new Evenements( null, "Venez vraiment", date1, "chez twa","que du love","h24","expert", 2 , 2, "miam","creteur", act1, m1); //à supprimer créé pour l'évent
 		eventRepo.save(ev1);
 		eventRepo.save(ev2);
 		

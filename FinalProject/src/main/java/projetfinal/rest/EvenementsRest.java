@@ -125,17 +125,17 @@ public class EvenementsRest {
 			return eventRepo.save(e);
 	}
 	
-	//@DeleteMapping("Evenements/supprimer/{id}")
-	//public boolean deleteEvent(@PathVariable Long id) {
+	@DeleteMapping("Evenements/supprimer/{id}")
+	public boolean deleteEvent(@PathVariable Long id) {
 		
-	//	Optional<Evenements> e = eventRepo.findById(id);
-	//	if(e.isPresent() ) {
-	//		eventRepo.deleteById(id);
-	//		return true;
-	//	}else {
-	//		return false;
-	//	}
-	//}
+		Optional<Evenements> e = eventRepo.findById(id);
+		if(e.isPresent() ) {
+			eventRepo.deleteById(id);
+			return true;
+		}else {
+			return false;
+		}
+	}
 	//Trouver les équipes d'un membre
 	@GetMapping("evenements/membres/{id}")
 	public List<Evenements> FindEvenementsByMembresid(@PathVariable long id){
