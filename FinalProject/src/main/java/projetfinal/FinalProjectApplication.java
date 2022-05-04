@@ -3,13 +3,16 @@ package projetfinal;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import projetfinal.entities.Activites;
 import projetfinal.entities.Associations;
 import projetfinal.entities.Equipes;
+import projetfinal.entities.Evenements;
 import projetfinal.entities.Membres;
+import projetfinal.repository.ActivitesRepository;
 import projetfinal.repository.AssociationsRepository;
 import projetfinal.repository.EquipesRepository;
 import projetfinal.repository.MembresRepository;
-
+import projetfinal.repository.EvenementsRepository;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,6 +36,12 @@ public class FinalProjectApplication implements CommandLineRunner {
 	
 	@Autowired
 	private EquipesRepository equipesRepo;
+	
+	@Autowired
+	private ActivitesRepository actiRepo;
+	
+	@Autowired
+	private EvenementsRepository eventRepo;
 	
 	@Autowired //a supprimer avant de pull
 	private MembresRepository membreRepo;  //a supprimer avant de pull
@@ -82,6 +91,13 @@ public class FinalProjectApplication implements CommandLineRunner {
 		assoRepo.save(a5);//à supprimer créé pour l'équipe
 		assoRepo.save(a6);//à supprimer créé pour l'équipe
 		
+		Activites act1 = new Activites( null, "AAA", "BBB", 4, "aert", true);
+		actiRepo.save(act1);
+		
+		Evenements ev1 = new Evenements( null, "Aver", null, "Aver","Aver","Aver","Aver", 3, 4, "Aver", act1, m1); //à supprimer créé pour l'évent
+		Evenements ev2 = new Evenements( null, "Aver2", null, "Aver","Aver","Aver","Aver", 3 ,4, "Aver", act1, m1); //à supprimer créé pour l'évent
+		eventRepo.save(ev1);
+		eventRepo.save(ev2);
 		
 	}
 }
