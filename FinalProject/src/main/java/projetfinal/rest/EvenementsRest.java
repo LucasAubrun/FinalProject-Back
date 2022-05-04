@@ -1,8 +1,12 @@
 package projetfinal.rest;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
+import java.lang.Math;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +27,7 @@ import projetfinal.entities.Activites;
 import projetfinal.entities.Associations;
 import projetfinal.repository.ActivitesRepository;
 
+
 @RestController @CrossOrigin("*")
 public class EvenementsRest {
 	
@@ -33,33 +38,59 @@ public class EvenementsRest {
 	private ActivitesRepository activiteRepo;
 
 	
+	@GetMapping("evenements/id/{id}")
+	public Optional<Evenements> EventById(@PathVariable long id) {
+		return eventRepo.findById(id);
+	}
 	
-	@GetMapping("Evenements/{nom}")
+	//@GetMapping("evenements/id")
+	//public List<Evenements> EventByRandId(@PathVariable long id) {
+	//	int min = 1;
+	//	int max = 10;
+	//	List value = new ArrayList();
+	//	for (int nombre = 0; nombre <=10; nombre++) {
+	//		value.add((int) Math.random());
+	//	};
+	//	return eventRepo.findById(for (int nombre = 0; nombre <=10; nombre++) {
+	//		value
+	//	}(long) value);
+	//}
+	
+	@GetMapping("evenements/id")
+	public Optional<Evenements> EventByRandId() {
+        int max = 16;
+        int min = 13;
+        int range = max - min + 1;
+            int rand = (int)(Math.random() * range) + min;
+		return eventRepo.findById((long) rand);
+	}
+		
+	@GetMapping("evenements/{nom}")
 	public List<Evenements> EventByNom(@PathVariable String nom) {
 		return eventRepo.findByNom(nom);
 	}
 	
-	@GetMapping("Evenements/{date}")
+	@GetMapping("evenements/{date}")
 	public List<Evenements> EventByDate(@PathVariable Date date) {
 		return (eventRepo.findByDate(date));
 	}
 	
-	@GetMapping("Evenements/{adresse}")
+	@GetMapping("evenements/{adresse}")
 	public List<Evenements> EventByAdresse(@PathVariable String adresse) {
 		return eventRepo.findByAdresse(adresse);
 	}
 	
-	@GetMapping("Evenements/{nbMin}")
+	@GetMapping("evenements/{nbMin}")
 	public List<Evenements> EventByNbMin(@PathVariable int nbMin) {
 		return eventRepo.findByNbMin(nbMin);
 	}
 	
-	@GetMapping("Evenements/{nbMax}")
+	@GetMapping("evenements/{nbMax}")
 	public List<Evenements> EventByNbMax(@PathVariable int nbMax) {
 		return eventRepo.findByNbMax(nbMax);
 	}
 	
-	@GetMapping("Evenements/{nomActivite}")
+	@GetMapping("evenements/{nomActivite}")
 	public List<Evenements> EventByActivites(@PathVariable String nomActivite) { 
 		return eventRepo.findByNomActivite(nomActivite);
 	}
