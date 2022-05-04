@@ -54,4 +54,13 @@ public class MembresRest {
 		m.setXp(xp);
 		return membreRepo.save(m);
 	}	
+	
+	@GetMapping("membre/getNP/{nom}/{prenom}")
+	public Optional<Membres> getMembreByNomlAndPrenom(@PathVariable String nom, @PathVariable String prenom) {
+		return membreRepo.findByNomAndPrenom(nom, prenom);
+	}
+	
+	
 }
+
+

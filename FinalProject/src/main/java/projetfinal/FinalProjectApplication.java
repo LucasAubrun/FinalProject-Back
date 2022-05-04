@@ -81,7 +81,7 @@ public class FinalProjectApplication implements CommandLineRunner {
 		assoRepo.save(a4);//à supprimer créé pour l'équipe
 		assoRepo.save(a5);//à supprimer créé pour l'équipe
 		assoRepo.save(a6);//à supprimer créé pour l'équipe
-		
+
 		
 	}
 }
