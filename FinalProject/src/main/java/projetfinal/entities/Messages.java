@@ -11,14 +11,11 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor @NoArgsConstructor @Data
 @Entity
-
 public class Messages {
 	@Id @GeneratedValue
 	private long id;
 	private String contenu;
 	
 	@OneToOne
-	private Membres membre;
-	
-	
+	private Membres membre;	
 }
