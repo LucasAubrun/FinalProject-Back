@@ -41,14 +41,14 @@ public class MembresRest {
 		return membreRepo.findAll();
 	}
 	
-	@PatchMapping("user/set/score/{id}")
+	@PatchMapping("membre/set/score/{id}")
 	public Membres setScore(@PathVariable Long id, @RequestBody Integer score) {
 		Membres m = membreRepo.findById(id).get();
 		m.setScore(score);
 		return membreRepo.save(m);
 	}
 	
-	@PatchMapping("user/set/xp/{id}")
+	@PatchMapping("membre/set/xp/{id}")
 	public Membres setXp(@PathVariable Long id, @RequestBody Integer xp) {
 		Membres m = membreRepo.findById(id).get();
 		m.setXp(xp);
