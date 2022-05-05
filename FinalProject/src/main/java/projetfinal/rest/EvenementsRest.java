@@ -42,6 +42,10 @@ public class EvenementsRest {
 	public Optional<Evenements> EventById(@PathVariable long id) {
 		return eventRepo.findById(id);
 	}
+	@GetMapping("evenements/all")
+	public Iterable<Evenements> allEvenements(){
+		return eventRepo.findAll();
+	}
 	
 	//@GetMapping("evenements/id")
 	//public List<Evenements> EventByRandId(@PathVariable long id) {
