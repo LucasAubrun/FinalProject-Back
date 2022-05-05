@@ -19,21 +19,21 @@ public class ParticipantsRest {
 	@Autowired
 	private ParticipantsRepository partRepo;
 	
-	//trouver toutes les associations
-	//@GetMapping("associations")
-	//public Iterable<Associations> allAssociations (){
-	//	return assoRepo.findAll();
-	//}
+	//trouver tous les participants
+	@GetMapping("participants")
+	public Iterable<Participants> allParticipants (){
+		return partRepo.findAll();
+	}
 	
-	//Invité un membre (créer une association)
-	//@PostMapping("inviter")
-	//public Associations saveAssociations(@RequestBody Associations a) {
-	//	return assoRepo.save(a);
-	//}
+	//Invité un membre (créer un participant)
+	@PostMapping("Participant/inviter")
+	public Participants saveParticipants(@RequestBody Participants p) {
+		return partRepo.save(p);
+	}
 	
-	//Trouver les équipes d'un membre
-	//@GetMapping("associations/membres/{id}")
-	//public List<Associations> FindAssociationsByMembresid(@PathVariable long id){
-	//	return assoRepo.findByMembresId(id);
-	//}
+	//Trouver les evenements d'un membre
+	@GetMapping("participants/membres/{id}")
+	public List<Participants> FindAssociationsByMembresid(@PathVariable long id){
+		return partRepo.findByMembresId(id);
+	}
 }

@@ -127,7 +127,6 @@ public class EvenementsRest {
 	
 	@DeleteMapping("Evenements/supprimer/{id}")
 	public boolean deleteEvent(@PathVariable Long id) {
-		
 		Optional<Evenements> e = eventRepo.findById(id);
 		if(e.isPresent() ) {
 			eventRepo.deleteById(id);

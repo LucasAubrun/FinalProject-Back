@@ -10,11 +10,13 @@ import projetfinal.entities.Associations;
 import projetfinal.entities.Equipes;
 import projetfinal.entities.Evenements;
 import projetfinal.entities.Membres;
+import projetfinal.entities.Participants;
 import projetfinal.repository.ActivitesRepository;
 import projetfinal.repository.AdminsRepository;
 import projetfinal.repository.AssociationsRepository;
 import projetfinal.repository.EquipesRepository;
 import projetfinal.repository.MembresRepository;
+import projetfinal.repository.ParticipantsRepository;
 import projetfinal.repository.EvenementsRepository;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -46,6 +48,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 	
 	@Autowired
 	private EvenementsRepository eventRepo;
+	
+	@Autowired
+	private ParticipantsRepository partRepo;
 	
 	@Autowired //a supprimer avant de pull
 	private MembresRepository membreRepo;  //a supprimer avant de pull
@@ -108,6 +113,11 @@ public class FinalProjectApplication implements CommandLineRunner {
 		
 		Admins ad1 = new Admins(null, "Lige", "Terence", "lat@gmail.com", "azerty", "Admin1");
 		adminRepo.save(ad1);
+		
+		Participants p1 = new Participants(null, m1, ev1);
+		Participants p2 = new Participants(null, m1, ev2);
+		partRepo.save(p1);
+		partRepo.save(p2);
 		
 		
 		
