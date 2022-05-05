@@ -20,5 +20,7 @@ public interface EvenementsRepository extends CrudRepository<Evenements, Long> {
 	public List<Evenements> findByNbMax(int nbMax);
 	public List<Evenements> findByNomActivite(String nom);
 	public List<Evenements> findByMembresId(Long id);
+	//public List<Evenements> findById2(Long id);
+	
 
 }

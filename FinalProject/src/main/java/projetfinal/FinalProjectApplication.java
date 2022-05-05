@@ -10,14 +10,17 @@ import projetfinal.entities.Associations;
 import projetfinal.entities.Equipes;
 import projetfinal.entities.Evenements;
 import projetfinal.entities.Membres;
+import projetfinal.entities.Participants;
 import projetfinal.repository.ActivitesRepository;
 import projetfinal.repository.AdminsRepository;
 import projetfinal.repository.AssociationsRepository;
 import projetfinal.repository.EquipesRepository;
 import projetfinal.repository.MembresRepository;
+import projetfinal.repository.ParticipantsRepository;
 import projetfinal.repository.EvenementsRepository;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +48,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 	
 	@Autowired
 	private EvenementsRepository eventRepo;
+	
+	@Autowired
+	private ParticipantsRepository partRepo;
 	
 	@Autowired //a supprimer avant de pull
 	private MembresRepository membreRepo;  //a supprimer avant de pull
@@ -100,13 +106,18 @@ public class FinalProjectApplication implements CommandLineRunner {
 		Activites act1 = new Activites( null, "AAA", "BBB", 4, "aert", true);
 		actiRepo.save(act1);
 		
-		Evenements ev1 = new Evenements( null, "Aver", null, "Aver","Aver","Aver","Aver", 3, 4, "Aver", act1, m1); //à supprimer créé pour l'évent
-		Evenements ev2 = new Evenements( null, "Aver2", null, "Aver","Aver","Aver","Aver", 3 ,4, "Aver", act1, m1); //à supprimer créé pour l'évent
+		Evenements ev1 = new Evenements( null, "Venez tous", date1, "chez oim","Grosse ambiance","toutes les secondes","tout", 12, 100, "Che pa", act1, m1); //à supprimer créé pour l'évent
+		Evenements ev2 = new Evenements( null, "Venez vraiment", date1, "chez twa","que du love","h24","expert", 2 , 2, "miam", act1, m1); //à supprimer créé pour l'évent
 		eventRepo.save(ev1);
 		eventRepo.save(ev2);
 		
 		Admins ad1 = new Admins(null, "Lige", "Terence", "lat@gmail.com", "azerty", "Admin1");
 		adminRepo.save(ad1);
+		
+		Participants p1 = new Participants(null, m1, ev1);
+		Participants p2 = new Participants(null, m1, ev2);
+		partRepo.save(p1);
+		partRepo.save(p2);
 		
 		
 		
