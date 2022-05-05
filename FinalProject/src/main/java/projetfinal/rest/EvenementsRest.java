@@ -44,7 +44,7 @@ public class EvenementsRest {
 		return eventRepo.findById(id);
 	}
 	@GetMapping("evenements/all")
-	public Iterable<Evenements> allEvenements(){
+	public Iterable<Evenements> allEvenementsbis(){
 		return eventRepo.findAll();
 	}
 	
