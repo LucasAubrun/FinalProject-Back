@@ -97,8 +97,16 @@ public class FinalProjectApplication implements CommandLineRunner {
 		assoRepo.save(a5);//à supprimer créé pour l'équipe
 		assoRepo.save(a6);//à supprimer créé pour l'équipe
 		
-		Activites act1 = new Activites( null, "AAA", "BBB", 4, "aert", true);
+		//Activites act1 = new Activites( null, "AAA", "BBB", 4, "aert", true);
+		
+		Activites act1 = new Activites(null,"basket","ba en gros tu joues avec une balle",10,"Sport",true);
+		Activites act2 = new Activites(null,"fifa","ba en gros tu joues avec une balle",2,"Jeu Vidéo",true);
+		Activites act3 = new Activites(null,"corde à sauter","ba en gros tu sautes",4,"Autre",false);
+		Activites act4 = new Activites(null,"tarot","c'est un jeu avec un chien",5,"Jeu de Société",false);
 		actiRepo.save(act1);
+		actiRepo.save(act2);
+		actiRepo.save(act3);
+		actiRepo.save(act4);
 		
 		Evenements ev1 = new Evenements( null, "Aver", null, "Aver","Aver","Aver","Aver", 3, 4, "Aver", act1, m1); //à supprimer créé pour l'évent
 		Evenements ev2 = new Evenements( null, "Aver2", null, "Aver","Aver","Aver","Aver", 3 ,4, "Aver", act1, m1); //à supprimer créé pour l'évent
