@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Participants {
 	
 	@Id @GeneratedValue
-	private Long idEqMb;
+	private Long idEvMb;
 
 	@ManyToOne
 	private Membres membres;
