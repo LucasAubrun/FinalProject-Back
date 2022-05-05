@@ -80,7 +80,7 @@ public class EvenementsRest {
 		return eventRepo.findAll();
 	}
 	
-	@GetMapping("evenements/{nom}")
+	@GetMapping("evenements/nom/{nom}")
 	public List<Evenements> EventByNom(@PathVariable String nom) {
 		return eventRepo.findByNom(nom);
 	}
