@@ -11,5 +11,6 @@ public interface MembresRepository extends CrudRepository<Membres, Long> {
 	
 	public Optional<Membres> findById(Long id);
 	public Optional<Membres> findByMailAndMdp(String mail, String mdp);
+	public Iterable<Membres> findAllByOrderByScoreDesc();
 
 }
