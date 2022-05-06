@@ -11,9 +11,6 @@ import projetfinal.entities.Participants;
 public interface ParticipantsRepository extends CrudRepository<Participants, Long> {
 
 	public Optional<Participants> findById(Long id);
-	
-	
 	public List<Participants> findByMembresId(Long id);
-	
-	
+		
 }

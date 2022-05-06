@@ -25,6 +25,8 @@ public class Membres {
 	private String mdp;
 	private Integer xp;
 	private Integer score;
+	private String note;
+	private boolean actif;
 	private Integer photoprofil;
 
 }
