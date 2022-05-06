@@ -1,14 +1,20 @@
 package projetfinal.rest;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import projetfinal.repository.ActivitesRepository;
 import projetfinal.entities.Activites;
+import projetfinal.entities.Membres;
 
 
 
@@ -42,7 +48,22 @@ public class ActivitesRest {
 		return actiRepo.findByNom(nom);
 	}
 	
+	@GetMapping("activites/id")
+	public Optional<Activites> id(@RequestBody Long id){
+		return actiRepo.findById(id);
+	}
 	
+	@GetMapping("activites/valide/{id}")
+	public Optional<Activites> vld(@PathVariable Long id){
+		return actiRepo.getValideById(id);
+	}
+	
+	@PatchMapping("activites/set/valide/{id}")
+	public Activites setValide(@PathVariable Long id, @RequestBody Boolean valide) {
+		Activites a = actiRepo.findById(id).get();
+		a.setValide(valide);
+		return actiRepo.save(a);
+	}
 	
 	
 

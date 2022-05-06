@@ -8,6 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 //import fr.solutec.entities.Memo;
 import projetfinal.entities.Evenements;
 import projetfinal.entities.Activites;
+import projetfinal.entities.Associations;
+import projetfinal.entities.Membres;
 
 public interface EvenementsRepository extends CrudRepository<Evenements, Long> {
 	
@@ -17,5 +19,9 @@ public interface EvenementsRepository extends CrudRepository<Evenements, Long> {
 	public List<Evenements> findByNbMin(int nbMin);
 	public List<Evenements> findByNbMax(int nbMax);
 	public List<Evenements> findByNomActivite(String nom);
+	public List<Evenements> findByMembresId(Long id);
+	//public List<Evenements> findByRandId2(Long id);
+	//public Evenements findByRandId(Long id);
+	
 
 }

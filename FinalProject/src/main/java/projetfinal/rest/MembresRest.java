@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import projetfinal.entities.Activites;
 import projetfinal.entities.Membres;
 import projetfinal.repository.MembresRepository;
 
@@ -41,18 +42,19 @@ public class MembresRest {
 		return membreRepo.findAll();
 	}
 	
-	@PatchMapping("user/set/score/{id}")
+	@PatchMapping("membre/set/score/{id}")
 	public Membres setScore(@PathVariable Long id, @RequestBody Integer score) {
 		Membres m = membreRepo.findById(id).get();
 		m.setScore(score);
 		return membreRepo.save(m);
 	}
 	
-	@PatchMapping("user/set/xp/{id}")
+	@PatchMapping("membre/set/xp/{id}")
 	public Membres setXp(@PathVariable Long id, @RequestBody Integer xp) {
 		Membres m = membreRepo.findById(id).get();
 		m.setXp(xp);
 		return membreRepo.save(m);
+
 	}
 	
 	@GetMapping("membre/getNP/{nom}/{prenom}")
@@ -61,6 +63,20 @@ public class MembresRest {
 	}
 	
 	
+
+	
+	@PatchMapping("membre/set/photoprofil/{id}")
+	public Membres setPhotoprofil(@PathVariable Long id, @RequestBody Integer photoprofil) {
+		Membres m = membreRepo.findById(id).get();
+		m.setPhotoprofil(photoprofil);
+		return membreRepo.save(m);
+	}
+	
+	@GetMapping("membre/photoprofil/{id}")
+	public Optional<Membres> photoprofil(@PathVariable Long id){
+		return membreRepo.getPhotoprofilById(id);
+	}
+
 }
 
 

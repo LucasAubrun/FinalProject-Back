@@ -1,8 +1,13 @@
 package projetfinal.rest;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
+import java.util.ArrayList;
 import java.util.Optional;
+import java.util.Random;
+import java.lang.Math;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,10 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 //import fr.solutec.entities.Memo;
 import projetfinal.entities.Evenements;
 import projetfinal.repository.EvenementsRepository;
-//import projetfinal.entities.Membres;
-//import projetfinal.repository.MembresRepository;
+import projetfinal.entities.Membres;
+import projetfinal.repository.MembresRepository;
 import projetfinal.entities.Activites;
+import projetfinal.entities.Associations;
 import projetfinal.repository.ActivitesRepository;
+
 
 @RestController @CrossOrigin("*")
 public class EvenementsRest {
@@ -32,33 +39,74 @@ public class EvenementsRest {
 	private ActivitesRepository activiteRepo;
 
 	
+	@GetMapping("evenements/id/{id}")
+	public Optional<Evenements> EventById(@PathVariable long id) {
+		return eventRepo.findById(id);
+	}
 	
-	@GetMapping("Evenements/{nom}")
+	
+	//@GetMapping("evenements/id")
+	//public List<Evenements> EventByRandId(@PathVariable long id) {
+	//	int min = 1;
+	//	int max = 10;
+	//	List value = new ArrayList();
+	//	for (int nombre = 0; nombre <=10; nombre++) {
+	//		value.add((int) Math.random());
+	//	};
+	//	return eventRepo.findById(for (int nombre = 0; nombre <=10; nombre++) {
+	//		value
+	//	}(long) value);
+	//}
+	
+	@GetMapping("evenements/id")
+	public Evenements EventByRandId() {
+        int max = 16;
+        int min = 13;
+        int range = max - min + 1;
+        int rand = (int)(Math.random() * range) + min;
+		return eventRepo.findById((long) rand).get();
+	}
+		
+	@GetMapping("evenement/multiple/10")
+	public ArrayList<Evenements> EventbyrandId2() {
+		ArrayList<Evenements> ensemble = new ArrayList<Evenements>();
+		for (int nombre = 0; nombre<=10; nombre ++) {
+			ensemble.add(EventByRandId());
+		}
+		return ensemble;
+	}
+	
+	@GetMapping("evenements/all")
+	public Iterable<Evenements> allEvenements(){
+		return eventRepo.findAll();
+	}
+	
+	@GetMapping("evenements/{nom}")
 	public List<Evenements> EventByNom(@PathVariable String nom) {
 		return eventRepo.findByNom(nom);
 	}
 	
-	@GetMapping("Evenements/{date}")
+	@GetMapping("evenements/{date}")
 	public List<Evenements> EventByDate(@PathVariable Date date) {
 		return (eventRepo.findByDate(date));
 	}
 	
-	@GetMapping("Evenements/{adresse}")
+	@GetMapping("evenements/{adresse}")
 	public List<Evenements> EventByAdresse(@PathVariable String adresse) {
 		return eventRepo.findByAdresse(adresse);
 	}
 	
-	@GetMapping("Evenements/{nbMin}")
+	@GetMapping("evenements/{nbMin}")
 	public List<Evenements> EventByNbMin(@PathVariable int nbMin) {
 		return eventRepo.findByNbMin(nbMin);
 	}
 	
-	@GetMapping("Evenements/{nbMax}")
+	@GetMapping("evenements/{nbMax}")
 	public List<Evenements> EventByNbMax(@PathVariable int nbMax) {
 		return eventRepo.findByNbMax(nbMax);
 	}
 	
-	@GetMapping("Evenements/{nomActivite}")
+	@GetMapping("evenements/{nomActivite}")
 	public List<Evenements> EventByActivites(@PathVariable String nomActivite) { 
 		return eventRepo.findByNomActivite(nomActivite);
 	}
@@ -87,22 +135,26 @@ public class EvenementsRest {
 	//@PostMapping("person/login")
 	//public Optional<Person> OnePerson(@RequestBody Person p) {
 	//	return Optional.ofNullable(personRepo.findByLoginAndPassword(p.getLogin(), p.getPassword()));
-	
-	//@DeleteMapping("Evenements/MesEvenements/{id}")
-	//public boolean deleteEvent(@PathVariable Long id) {
-		
-	//	Optional<Evenements> e = eventRepo.findById(id);
-	//	if(e.isPresent() ) {
-	//		eventRepo.deleteById(id);
-	//		return true;
-	//	}else {
-	//		return false;
-	//	}
-	//}
 
-	@PostMapping("Evenements")
+	@PostMapping("Evenements/save")
 	public Evenements saveEvenement(@RequestBody Evenements e) {
 			return eventRepo.save(e);
+	}
+	
+	@DeleteMapping("Evenements/supprimer/{id}")
+	public boolean deleteEvent(@PathVariable Long id) {
+		Optional<Evenements> e = eventRepo.findById(id);
+		if(e.isPresent() ) {
+			eventRepo.deleteById(id);
+			return true;
+		}else {
+			return false;
+		}
+	}
+	//Trouver les équipes d'un membre
+	@GetMapping("evenements/membres/{id}")
+	public List<Evenements> FindEvenementsByMembresid(@PathVariable long id){
+		return eventRepo.findByMembresId(id);
 	}
 	
 }
