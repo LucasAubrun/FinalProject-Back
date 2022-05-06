@@ -13,7 +13,12 @@ public interface MembresRepository extends CrudRepository<Membres, Long> {
 	
 	public Optional<Membres> findById(Long id);
 	public Optional<Membres> findByMailAndMdp(String mail, String mdp);
+
+	public Optional<Membres> findByNomAndPrenom(String nom, String prenom);
+	
+
 	@Query("SELECT m.photoprofil FROM Membres m WHERE m.id =?1")
 	public Optional<Membres> getPhotoprofilById(Long id);
+
 
 }
