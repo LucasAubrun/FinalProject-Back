@@ -26,5 +26,6 @@ public class Membres {
 	private String mdp;
 	private Integer xp;
 	private Integer score;
+	private Integer photoprofil;
 
 }

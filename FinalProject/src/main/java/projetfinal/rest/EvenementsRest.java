@@ -47,7 +47,6 @@ public class EvenementsRest {
 	//public Iterable<Evenements> allEvenementsbis(){
 	//	return eventRepo.findAll();
 	//}
-	
 	//@GetMapping("evenements/id")
 	//public List<Evenements> EventByRandId(@PathVariable long id) {
 	//	int min = 1;
@@ -156,8 +155,8 @@ public class EvenementsRest {
 	}
 	//Trouver les équipes d'un membre
 	@GetMapping("evenements/membres/{id}")
-	public List<Evenements> FindEvenementsByMembresid(@PathVariable long id){
-		return eventRepo.findByMembresId(id);
+	public List<Evenements> FindEvenementsByCreateurId(@PathVariable long id){
+		return eventRepo.findByCreateurId(id);
 	}
 	
 }

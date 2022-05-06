@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import projetfinal.entities.Activites;
 import projetfinal.entities.Membres;
 import projetfinal.repository.MembresRepository;
 
@@ -54,4 +55,16 @@ public class MembresRest {
 		m.setXp(xp);
 		return membreRepo.save(m);
 	}	
+	
+	@PatchMapping("membre/set/photoprofil/{id}")
+	public Membres setPhotoprofil(@PathVariable Long id, @RequestBody Integer photoprofil) {
+		Membres m = membreRepo.findById(id).get();
+		m.setPhotoprofil(photoprofil);
+		return membreRepo.save(m);
+	}
+	
+	@GetMapping("membre/photoprofil/{id}")
+	public Optional<Membres> photoprofil(@PathVariable Long id){
+		return membreRepo.getPhotoprofilById(id);
+	}
 }

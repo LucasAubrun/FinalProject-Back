@@ -74,10 +74,10 @@ public class FinalProjectApplication implements CommandLineRunner {
 		DateFormat d = new SimpleDateFormat("dd/MM/yyyy");  //a supprimer avant de pull (création pour équipe)
 		Date date1 = d.parse("14/01/1997");	  //a supprimer avant de pull	
 		
-		Membres m1 = new Membres( null, "Member1", "Luidi", date1, "m1@mario",  "m1", 15, 10); //à supprimer créé pour l'équipe
-		Membres m2 = new Membres( null, "Member2", "loukal", date1, "m2@mario", "m2", 15, 10); //à supprimer créé pour l'équipe
-		Membres m3 = new Membres( null, "Member3", "popol", date1, "m3@mario",  "m3", 15, 10); //à supprimer créé pour l'équipe
-		Membres m4 = new Membres( null, "Member4", "padouk", date1, "m4@mario", "m4", 15, 10); //à supprimer créé pour l'équipe
+		Membres m1 = new Membres( null, "Member1", "Luidi", date1, "m1@mario",  "m1", 15, 10, 1); //à supprimer créé pour l'équipe
+		Membres m2 = new Membres( null, "Member2", "loukal", date1, "m2@mario", "m2", 15, 10, 2); //à supprimer créé pour l'équipe
+		Membres m3 = new Membres( null, "Member3", "popol", date1, "m3@mario",  "m3", 15, 10, 3); //à supprimer créé pour l'équipe
+		Membres m4 = new Membres( null, "Member4", "padouk", date1, "m4@mario", "m4", 15, 10, 3); //à supprimer créé pour l'équipe
 		membreRepo.save(m1);		 //à supprimer créé pour l'équipe
 		membreRepo.save(m2);		 //à supprimer créé pour l'équipe
 		membreRepo.save(m3);		 //à supprimer créé pour l'équipe
