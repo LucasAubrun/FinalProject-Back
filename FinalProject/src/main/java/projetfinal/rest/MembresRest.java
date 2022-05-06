@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import projetfinal.entities.Activites;
 import projetfinal.entities.Membres;
 import projetfinal.repository.MembresRepository;
 
@@ -46,6 +47,7 @@ public class MembresRest {
 		return membreRepo.findAll();
 	}
 	
+<<<<<<< HEAD
 	@PostMapping("membre/edit/{id}")
 	public Membres setMembre(@RequestBody Membres newM, @PathVariable Long id) {
 		Membres m = membreRepo.findById(id).get();
@@ -58,6 +60,8 @@ public class MembresRest {
 		return membreRepo.save(m);
 	}
 	
+=======
+>>>>>>> branch 'master' of https://github.com/LucasAubrun/FinalProject-Back.git
 	@PatchMapping("membre/set/score/{id}")
 	public Membres setScore(@PathVariable Long id, @RequestBody Integer score) {
 		Membres m = membreRepo.findById(id).get();
@@ -70,5 +74,29 @@ public class MembresRest {
 		Membres m = membreRepo.findById(id).get();
 		m.setXp(xp);
 		return membreRepo.save(m);
-	}	
+
+	}
+	
+	@GetMapping("membre/getNP/{nom}/{prenom}")
+	public Optional<Membres> getMembreByNomlAndPrenom(@PathVariable String nom, @PathVariable String prenom) {
+		return membreRepo.findByNomAndPrenom(nom, prenom);
+	}
+	
+	
+
+	
+	@PatchMapping("membre/set/photoprofil/{id}")
+	public Membres setPhotoprofil(@PathVariable Long id, @RequestBody Integer photoprofil) {
+		Membres m = membreRepo.findById(id).get();
+		m.setPhotoprofil(photoprofil);
+		return membreRepo.save(m);
+	}
+	
+	@GetMapping("membre/photoprofil/{id}")
+	public Optional<Membres> photoprofil(@PathVariable Long id){
+		return membreRepo.getPhotoprofilById(id);
+	}
+
 }
+
+

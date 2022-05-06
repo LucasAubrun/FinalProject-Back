@@ -2,8 +2,9 @@ package projetfinal.rest;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Random;
 import java.util.List;
+import java.util.Random;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Random;
 import java.lang.Math;
@@ -43,6 +44,7 @@ public class EvenementsRest {
 		return eventRepo.findById(id);
 	}
 	
+	
 	//@GetMapping("evenements/id")
 	//public List<Evenements> EventByRandId(@PathVariable long id) {
 	//	int min = 1;
@@ -57,14 +59,28 @@ public class EvenementsRest {
 	//}
 	
 	@GetMapping("evenements/id")
-	public Optional<Evenements> EventByRandId() {
+	public Evenements EventByRandId() {
         int max = 16;
         int min = 13;
         int range = max - min + 1;
-            int rand = (int)(Math.random() * range) + min;
-		return eventRepo.findById((long) rand);
+        int rand = (int)(Math.random() * range) + min;
+		return eventRepo.findById((long) rand).get();
 	}
 		
+	@GetMapping("evenement/multiple/10")
+	public ArrayList<Evenements> EventbyrandId2() {
+		ArrayList<Evenements> ensemble = new ArrayList<Evenements>();
+		for (int nombre = 0; nombre<=10; nombre ++) {
+			ensemble.add(EventByRandId());
+		}
+		return ensemble;
+	}
+	
+	@GetMapping("evenements/all")
+	public Iterable<Evenements> allEvenements(){
+		return eventRepo.findAll();
+	}
+	
 	@GetMapping("evenements/{nom}")
 	public List<Evenements> EventByNom(@PathVariable String nom) {
 		return eventRepo.findByNom(nom);
@@ -127,7 +143,6 @@ public class EvenementsRest {
 	
 	@DeleteMapping("Evenements/supprimer/{id}")
 	public boolean deleteEvent(@PathVariable Long id) {
-		
 		Optional<Evenements> e = eventRepo.findById(id);
 		if(e.isPresent() ) {
 			eventRepo.deleteById(id);

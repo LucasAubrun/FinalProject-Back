@@ -10,11 +10,13 @@ import projetfinal.entities.Associations;
 import projetfinal.entities.Equipes;
 import projetfinal.entities.Evenements;
 import projetfinal.entities.Membres;
+import projetfinal.entities.Participants;
 import projetfinal.repository.ActivitesRepository;
 import projetfinal.repository.AdminsRepository;
 import projetfinal.repository.AssociationsRepository;
 import projetfinal.repository.EquipesRepository;
 import projetfinal.repository.MembresRepository;
+import projetfinal.repository.ParticipantsRepository;
 import projetfinal.repository.EvenementsRepository;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -47,6 +49,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 	@Autowired
 	private EvenementsRepository eventRepo;
 	
+	@Autowired
+	private ParticipantsRepository partRepo;
+	
 	@Autowired //a supprimer avant de pull
 	private MembresRepository membreRepo;  //a supprimer avant de pull
 	
@@ -66,6 +71,7 @@ public class FinalProjectApplication implements CommandLineRunner {
 		DateFormat d = new SimpleDateFormat("dd/MM/yyyy");  //a supprimer avant de pull (création pour équipe)
 		Date date1 = d.parse("14/01/1997");	  //a supprimer avant de pull	
 		
+<<<<<<< HEAD
 		Membres m1 = new Membres( null, "Member1", "Luidi", date1, "m1@mario",  "m1", 15, 10, "J'aime les bananes", true); //à supprimer créé pour l'équipe
 		Membres m2 = new Membres( null, "Member2", "loukal", date1, "m2@mario", "m2", 15, 10, "J'aime les poires", true); //à supprimer créé pour l'équipe
 		Membres m3 = new Membres( null, "Member3", "popol", date1, "m3@mario",  "m3", 15, 10, "J'aime les pates", true); //à supprimer créé pour l'équipe
@@ -79,6 +85,12 @@ public class FinalProjectApplication implements CommandLineRunner {
 		Membres m10 = new Membres( null, "Member10", "padouk10", date1, "m10@mario", "m10", 15, 120, "J'aime les kayaks", true); //à supprimer créé pour l'équipe
 		Membres m11 = new Membres( null, "Member11", "jacki11", date1, "m11@mario", "m11", 15, 27, "J'aime les fruits en général", true); //à supprimer créé pour l'équipe
 		Membres m12 = new Membres( null, "Member12", "lucas", date1, "m12@mario", "m12", 15, 27, "J'aime les mamans", true);
+=======
+		Membres m1 = new Membres( null, "Member1", "Luidi", date1, "m1@mario",  "m1", 15, 10,1); //à supprimer créé pour l'équipe
+		Membres m2 = new Membres( null, "Member2", "loukal", date1, "m2@mario", "m2", 15, 10,2); //à supprimer créé pour l'équipe
+		Membres m3 = new Membres( null, "Member3", "popol", date1, "m3@mario",  "m3", 15, 10,3); //à supprimer créé pour l'équipe
+		Membres m4 = new Membres( null, "Member4", "padouk", date1, "m4@mario", "m4", 15, 10,4); //à supprimer créé pour l'équipe
+>>>>>>> branch 'master' of https://github.com/LucasAubrun/FinalProject-Back.git
 		membreRepo.save(m1);		 //à supprimer créé pour l'équipe
 		membreRepo.save(m2);		 //à supprimer créé pour l'équipe
 		membreRepo.save(m3);		 //à supprimer créé pour l'équipe
@@ -111,9 +123,18 @@ public class FinalProjectApplication implements CommandLineRunner {
 		assoRepo.save(a4);//à supprimer créé pour l'équipe
 		assoRepo.save(a5);//à supprimer créé pour l'équipe
 		assoRepo.save(a6);//à supprimer créé pour l'équipe
+
 		
-		Activites act1 = new Activites( null, "AAA", "BBB", 4, "aert", true);
+		//Activites act1 = new Activites( null, "AAA", "BBB", 4, "aert", true);
+		
+		Activites act1 = new Activites(null,"basket","ba en gros tu joues avec une balle",10,"Sport",true);
+		Activites act2 = new Activites(null,"fifa","ba en gros tu joues avec une balle",2,"Jeu Vidéo",true);
+		Activites act3 = new Activites(null,"corde à sauter","ba en gros tu sautes",4,"Autre",false);
+		Activites act4 = new Activites(null,"tarot","c'est un jeu avec un chien",5,"Jeu de Société",false);
 		actiRepo.save(act1);
+		actiRepo.save(act2);
+		actiRepo.save(act3);
+		actiRepo.save(act4);
 		
 		Evenements ev1 = new Evenements( null, "Venez tous", date1, "chez oim","Grosse ambiance","toutes les secondes","tout", 12, 100, "Che pa", act1, m1); //à supprimer créé pour l'évent
 		Evenements ev2 = new Evenements( null, "Venez vraiment", date1, "chez twa","que du love","h24","expert", 2 , 2, "miam", act1, m1); //à supprimer créé pour l'évent
@@ -123,7 +144,14 @@ public class FinalProjectApplication implements CommandLineRunner {
 		Admins ad1 = new Admins(null, "Lige", "Terence", "lat@gmail.com", "azerty", "Admin1");
 		adminRepo.save(ad1);
 		
+		Participants p1 = new Participants(null, m1, ev1);
+		Participants p2 = new Participants(null, m1, ev2);
+		partRepo.save(p1);
+		partRepo.save(p2); 
 		
 		
-	}
+
+		
+	}//
 }
+
