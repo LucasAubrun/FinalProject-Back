@@ -15,5 +15,9 @@ public interface AssociationsRepository extends CrudRepository<Associations, Lon
 	
 	public List<Associations> findByMembresId(Long id);
 	
+	public List<Associations> findByEquipesId(Long id);
+
+
+	
 	
 }

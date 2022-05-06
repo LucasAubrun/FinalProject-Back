@@ -31,9 +31,9 @@ public class MembresRest {
 		return membreRepo.findById(id);
 	}
 	
-	@GetMapping("membre/get/{mail}/{mdp}")
-	public Optional<Membres> getMembreByMailAndMdp(@PathVariable String mail, @PathVariable String mdp) {
-		return membreRepo.findByMailAndMdp(mail, mdp);
+	@PostMapping("membre/get")
+	public Optional<Membres> getMembreByMailAndMdp(@RequestBody Membres m) {
+		return membreRepo.findByMailAndMdp(m.getMail(), m.getMdp());
 	}
 	
 	@GetMapping("membre/get/all")
@@ -53,7 +53,7 @@ public class MembresRest {
 		Membres m = membreRepo.findById(id).get();
 		m.setXp(xp);
 		return membreRepo.save(m);
-	}	
+	}
 	
 	@GetMapping("membre/getNP/{nom}/{prenom}")
 	public Optional<Membres> getMembreByNomlAndPrenom(@PathVariable String nom, @PathVariable String prenom) {

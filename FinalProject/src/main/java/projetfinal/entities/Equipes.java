@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 
 
 @AllArgsConstructor @NoArgsConstructor @Data
-@Entity
+@Entity 
 public class Equipes {
 	
 	@Id @GeneratedValue
