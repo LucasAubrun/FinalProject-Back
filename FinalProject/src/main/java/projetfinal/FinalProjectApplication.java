@@ -83,6 +83,6 @@ public class FinalProjectApplication implements CommandLineRunner {
 		assoRepo.save(a6);//à supprimer créé pour l'équipe
 
 		
-	}//
+	}
 }
 
