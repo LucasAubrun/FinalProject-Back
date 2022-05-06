@@ -47,7 +47,6 @@ public class MembresRest {
 		return membreRepo.findAll();
 	}
 	
-<<<<<<< HEAD
 	@PostMapping("membre/edit/{id}")
 	public Membres setMembre(@RequestBody Membres newM, @PathVariable Long id) {
 		Membres m = membreRepo.findById(id).get();
@@ -59,9 +58,7 @@ public class MembresRest {
 		m.setMdp(newM.getMdp());
 		return membreRepo.save(m);
 	}
-	
-=======
->>>>>>> branch 'master' of https://github.com/LucasAubrun/FinalProject-Back.git
+
 	@PatchMapping("membre/set/score/{id}")
 	public Membres setScore(@PathVariable Long id, @RequestBody Integer score) {
 		Membres m = membreRepo.findById(id).get();
