@@ -3,6 +3,7 @@ package projetfinal.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -12,10 +13,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor @NoArgsConstructor @Data
 @Entity
 public class Messages {
-	@Id @GeneratedValue
-	private long id;
-	private String contenu;
 	
-	@OneToOne
-	private Membres membre;	
+	@Id @GeneratedValue
+	private Long id;
+	private String contenu;
+	private boolean lu;
+	
+	@ManyToOne
+	private Membres emetteur;
+	@ManyToOne
+	private Membres recepteur;
 }

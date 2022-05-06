@@ -10,12 +10,14 @@ import projetfinal.entities.Associations;
 import projetfinal.entities.Equipes;
 import projetfinal.entities.Evenements;
 import projetfinal.entities.Membres;
+import projetfinal.entities.Messages;
 import projetfinal.entities.Participants;
 import projetfinal.repository.ActivitesRepository;
 import projetfinal.repository.AdminsRepository;
 import projetfinal.repository.AssociationsRepository;
 import projetfinal.repository.EquipesRepository;
 import projetfinal.repository.MembresRepository;
+import projetfinal.repository.MessagesRepository;
 import projetfinal.repository.ParticipantsRepository;
 import projetfinal.repository.EvenementsRepository;
 import java.text.DateFormat;
@@ -57,6 +59,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 	
 	@Autowired
 	private AdminsRepository adminRepo;
+	
+	@Autowired
+	private MessagesRepository messageRepo;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(FinalProjectApplication.class, args);
@@ -144,8 +149,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 		partRepo.save(p1);
 		partRepo.save(p2); 
 		
+		Messages mes1 = new Messages(null, "Salut Clara", false, m1, m2);
+		messageRepo.save(mes1);
 		
-
 		
 	}//
 }
