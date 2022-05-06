@@ -102,6 +102,7 @@ public class FinalProjectApplication implements CommandLineRunner {
 		assoRepo.save(a4);//à supprimer créé pour l'équipe
 		assoRepo.save(a5);//à supprimer créé pour l'équipe
 		assoRepo.save(a6);//à supprimer créé pour l'équipe
+
 		
 		//Activites act1 = new Activites( null, "AAA", "BBB", 4, "aert", true);
 		
@@ -127,9 +128,11 @@ public class FinalProjectApplication implements CommandLineRunner {
 		Participants p1 = new Participants(null, m1, ev1);
 		Participants p2 = new Participants(null, m1, ev2);
 		partRepo.save(p1);
-		partRepo.save(p2);
+		partRepo.save(p2); 
 		
 		
+
 		
-	}
+	}//
 }
+
