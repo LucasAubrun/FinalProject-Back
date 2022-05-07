@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import projetfinal.entities.Activites;
 import projetfinal.entities.Amis;
 import projetfinal.repository.AmisRepository;
 
@@ -44,5 +45,10 @@ public class AmisRest {
 			return amisRepo.save(a);
 		}
 	
+		// creer une aminite
+		@PostMapping("amis/save")
+		public Amis saveAmis(@RequestBody Amis a) {
+			return amisRepo.save(a);
+		}
 
 }
