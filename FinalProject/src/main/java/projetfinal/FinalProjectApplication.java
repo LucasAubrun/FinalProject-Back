@@ -150,7 +150,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 		partRepo.save(p2); 
 		
 		Messages mes1 = new Messages(null, "Salut Clara", false, m1, m2);
+		Messages mes2 = new Messages(null, "Salut Clara, je pense que je vais manger un gâteau, est-ce que tu en veux aussi ? ce serait cool mdr il est au chocolat et je sais que t'aime pas ça", false, m1, m2);
 		messageRepo.save(mes1);
+		messageRepo.save(mes2);
 		
 		
 	}//
