@@ -1,6 +1,7 @@
 package projetfinal.rest;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -42,5 +43,11 @@ public class EquipesRest {
 	public List<Equipes> FindEquipesByMembresId(@PathVariable long id) {
 		return equipesRepo.findByMembresId(id); 
 	}
+	
+	@GetMapping("equipes/{nom}")
+	public List<Equipes> finEquipeByNom (@PathVariable String nom){
+		return equipesRepo.findByNom(nom);
+		}
+	
 }
 

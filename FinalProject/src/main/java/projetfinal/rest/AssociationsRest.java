@@ -1,6 +1,7 @@
 package projetfinal.rest;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import projetfinal.entities.Associations;
+import projetfinal.entities.Membres;
 import projetfinal.repository.AssociationsRepository;
 
 @RestController @CrossOrigin("*")
@@ -26,7 +28,7 @@ public class AssociationsRest {
 	}
 	
 	//Invité un membre (créer une association)
-	@PostMapping("inviter")
+	@PostMapping("associations/inviter")
 	public Associations saveAssociations(@RequestBody Associations a) {
 		return assoRepo.save(a);
 	}
@@ -36,4 +38,10 @@ public class AssociationsRest {
 	public List<Associations> FindAssociationsByMembresid(@PathVariable long id){
 		return assoRepo.findByMembresId(id);
 	}
+	
+	@GetMapping("associations/equipe/{id}")
+	public List<Associations> FindAssociationsByEquipesId(@PathVariable long id){
+		return assoRepo.findByEquipesId(id);
+	}
+
 }

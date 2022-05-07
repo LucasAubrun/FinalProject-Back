@@ -10,16 +10,16 @@ import projetfinal.entities.Associations;
 import projetfinal.entities.Equipes;
 import projetfinal.entities.Evenements;
 import projetfinal.entities.Membres;
+import projetfinal.entities.Messages;
 import projetfinal.entities.Participants;
-import projetfinal.entities.Amis;
 import projetfinal.repository.ActivitesRepository;
 import projetfinal.repository.AdminsRepository;
 import projetfinal.repository.AssociationsRepository;
 import projetfinal.repository.EquipesRepository;
 import projetfinal.repository.MembresRepository;
+import projetfinal.repository.MessagesRepository;
 import projetfinal.repository.ParticipantsRepository;
 import projetfinal.repository.EvenementsRepository;
-import projetfinal.repository.AmisRepository;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -61,7 +61,7 @@ public class FinalProjectApplication implements CommandLineRunner {
 	private AdminsRepository adminRepo;
 	
 	@Autowired
-	private AmisRepository amisRepo;
+	private MessagesRepository messageRepo;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(FinalProjectApplication.class, args);
@@ -69,9 +69,6 @@ public class FinalProjectApplication implements CommandLineRunner {
 	}
 
 
-
-
-	
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("lancement en cours");
@@ -79,14 +76,33 @@ public class FinalProjectApplication implements CommandLineRunner {
 		DateFormat d = new SimpleDateFormat("dd/MM/yyyy");  //a supprimer avant de pull (création pour équipe)
 		Date date1 = d.parse("14/01/1997");	  //a supprimer avant de pull	
 		
-		Membres m1 = new Membres( null, "Member1", "Luidi", date1, "m1@mario",  "m1", 15, 10,1); //à supprimer créé pour l'équipe
-		Membres m2 = new Membres( null, "Member2", "loukal", date1, "m2@mario", "m2", 15, 10,2); //à supprimer créé pour l'équipe
-		Membres m3 = new Membres( null, "Member3", "popol", date1, "m3@mario",  "m3", 15, 10,3); //à supprimer créé pour l'équipe
-		Membres m4 = new Membres( null, "Member4", "padouk", date1, "m4@mario", "m4", 15, 10,4); //à supprimer créé pour l'équipe
+
+		Membres m1 = new Membres( null, "Member1", "Luidi", date1, "m1@mario",  "m1", 15, 10, "J'aime les bananes", true, 1); //à supprimer créé pour l'équipe
+		Membres m2 = new Membres( null, "Member2", "loukal", date1, "m2@mario", "m2", 15, 10, "J'aime les poires", true, 2); //à supprimer créé pour l'équipe
+		Membres m3 = new Membres( null, "Member3", "popol", date1, "m3@mario",  "m3", 15, 10, "J'aime les pates", true, 3); //à supprimer créé pour l'équipe
+		Membres m4 = new Membres( null, "Member4", "padouk", date1, "m4@mario", "m4", 15, 120, "J'aime les kiwis", true, 4); //à supprimer créé pour l'équipe
+		Membres m5 = new Membres( null, "Member5", "jacki", date1, "m5@mario", "m5", 15, 27, "J'aime les fraises", true, 5); //à supprimer créé pour l'équipe
+		Membres m6 = new Membres( null, "Member6", "jacki2", date1, "m6@mario", "m6", 15, 27, "J'aime les madeleines", true, 1);
+		
+		Membres m7 = new Membres( null, "Member7", "Matthieu", date1, "m7@mario",  "m7", 15, 10, "J'aime les boules", true, 5); //à supprimer créé pour l'équipe
+		Membres m8 = new Membres( null, "Member8", "loukal8", date1, "m8@mario", "m8", 15, 10, "J'aime les paniers de yoplait", true, 3); //à supprimer créé pour l'équipe
+		Membres m9 = new Membres( null, "Member9", "popol9", date1, "m9@mario",  "m9", 15, 10, "J'aime les patates sautées à l'huile d'olive", true, 4); //à supprimer créé pour l'équipe
+		Membres m10 = new Membres( null, "Member10", "padouk10", date1, "m10@mario", "m10", 15, 120, "J'aime les kayaks", true, 2); //à supprimer créé pour l'équipe
+		Membres m11 = new Membres( null, "Member11", "jacki11", date1, "m11@mario", "m11", 15, 27, "J'aime les fruits en général", true, 4); //à supprimer créé pour l'équipe
+		Membres m12 = new Membres( null, "Member12", "lucas", date1, "m12@mario", "m12", 15, 27, "J'aime les mamans", true, 1);
+		
 		membreRepo.save(m1);		 //à supprimer créé pour l'équipe
 		membreRepo.save(m2);		 //à supprimer créé pour l'équipe
 		membreRepo.save(m3);		 //à supprimer créé pour l'équipe
 		membreRepo.save(m4);		 //à supprimer créé pour l'équipe
+		membreRepo.save(m5);		 //à supprimer créé pour l'équipe
+		membreRepo.save(m6);		 //à supprimer créé pour l'équipe
+		membreRepo.save(m7);		 //à supprimer créé pour l'équipe
+		membreRepo.save(m8);		 //à supprimer créé pour l'équipe
+		membreRepo.save(m9);		 //à supprimer créé pour l'équipe
+		membreRepo.save(m10);		 //à supprimer créé pour l'équipe
+		membreRepo.save(m11);		 //à supprimer créé pour l'équipe
+		membreRepo.save(m12);		 //à supprimer créé pour l'équipe
 		
 		Equipes e1 = new Equipes( null, "Solutec Gang", m1); //à supprimer créé pour l'équipe
 		Equipes e2 = new Equipes( null, "La DreamTeam", m1); //à supprimer créé pour l'équipe
@@ -100,24 +116,14 @@ public class FinalProjectApplication implements CommandLineRunner {
 	    Associations a3 = new Associations( null, m1, e3);//à supprimer créé pour l'équipe
 		Associations a4 = new Associations( null, m2, e1);//à supprimer créé pour l'équipe
 		Associations a5 = new Associations( null, m3, e3);//à supprimer créé pour l'équipe
-		Associations a6 = new Associations( null, m3, e2);//à supprimer créé pour l'équipe
+		Associations a6 = new Associations( null, m3, e2);//à supprimer créé pour l'équipe 
 		assoRepo.save(a1);//à supprimer créé pour l'équipe
 		assoRepo.save(a2);//à supprimer créé pour l'équipe
 		assoRepo.save(a3);//à supprimer créé pour l'équipe
 		assoRepo.save(a4);//à supprimer créé pour l'équipe
 		assoRepo.save(a5);//à supprimer créé pour l'équipe
 		assoRepo.save(a6);//à supprimer créé pour l'équipe
-		
-		Amis ami1 = new Amis( null, m1, m2,false);//à supprimer créé pour l'équipe
-		Amis ami2 = new Amis( null, m1, m3,false);//à supprimer créé pour l'équipe
-		Amis ami3 = new Amis( null, m1, m4,false);//à supprimer créé pour l'équipe
-		Amis ami4 = new Amis( null, m2, m3,false);//à supprimer créé pour l'équipe
-		Amis ami5 = new Amis( null, m2, m4,false);//à supprimer créé pour l'équipe
-		amisRepo.save(ami1);//à supprimer créé pour l'équipe
-		amisRepo.save(ami2);//à supprimer créé pour l'équipe
-		amisRepo.save(ami3);//à supprimer créé pour l'équipe
-		amisRepo.save(ami4);//à supprimer créé pour l'équipe
-		amisRepo.save(ami5);//à supprimer créé pour l'équipe
+
 		
 		//Activites act1 = new Activites( null, "AAA", "BBB", 4, "aert", true);
 		
@@ -141,9 +147,13 @@ public class FinalProjectApplication implements CommandLineRunner {
 		Participants p1 = new Participants(null, m1, ev1);
 		Participants p2 = new Participants(null, m1, ev2);
 		partRepo.save(p1);
-		partRepo.save(p2);
+		partRepo.save(p2); 
+		
+		Messages mes1 = new Messages(null, "Salut Clara", false, m1, m2);
+		Messages mes2 = new Messages(null, "Salut Clara, je pense que je vais manger un gâteau, est-ce que tu en veux aussi ? ce serait cool mdr il est au chocolat et je sais que t'aime pas ça", false, m1, m2);
+		messageRepo.save(mes1);
+		messageRepo.save(mes2);
 		
 		
-		
-	}
+	}//
 }

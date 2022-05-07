@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +25,8 @@ public class Membres {
 	private String mdp;
 	private Integer xp;
 	private Integer score;
+	private String note;
+	private boolean actif;
 	private Integer photoprofil;
 
 }
