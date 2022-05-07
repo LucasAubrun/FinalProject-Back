@@ -11,6 +11,7 @@ import projetfinal.entities.Equipes;
 import projetfinal.entities.Evenements;
 import projetfinal.entities.Membres;
 import projetfinal.entities.Participants;
+import projetfinal.entities.Amis;
 import projetfinal.repository.ActivitesRepository;
 import projetfinal.repository.AdminsRepository;
 import projetfinal.repository.AssociationsRepository;
@@ -18,6 +19,7 @@ import projetfinal.repository.EquipesRepository;
 import projetfinal.repository.MembresRepository;
 import projetfinal.repository.ParticipantsRepository;
 import projetfinal.repository.EvenementsRepository;
+import projetfinal.repository.AmisRepository;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -57,6 +59,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 	
 	@Autowired
 	private AdminsRepository adminRepo;
+	
+	@Autowired
+	private AmisRepository amisRepo;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(FinalProjectApplication.class, args);
@@ -102,6 +107,17 @@ public class FinalProjectApplication implements CommandLineRunner {
 		assoRepo.save(a4);//à supprimer créé pour l'équipe
 		assoRepo.save(a5);//à supprimer créé pour l'équipe
 		assoRepo.save(a6);//à supprimer créé pour l'équipe
+		
+		Amis ami1 = new Amis( null, m1, m2,false);//à supprimer créé pour l'équipe
+		Amis ami2 = new Amis( null, m1, m3,false);//à supprimer créé pour l'équipe
+		Amis ami3 = new Amis( null, m1, m4,false);//à supprimer créé pour l'équipe
+		Amis ami4 = new Amis( null, m2, m3,false);//à supprimer créé pour l'équipe
+		Amis ami5 = new Amis( null, m2, m4,false);//à supprimer créé pour l'équipe
+		amisRepo.save(ami1);//à supprimer créé pour l'équipe
+		amisRepo.save(ami2);//à supprimer créé pour l'équipe
+		amisRepo.save(ami3);//à supprimer créé pour l'équipe
+		amisRepo.save(ami4);//à supprimer créé pour l'équipe
+		amisRepo.save(ami5);//à supprimer créé pour l'équipe
 		
 		//Activites act1 = new Activites( null, "AAA", "BBB", 4, "aert", true);
 		
