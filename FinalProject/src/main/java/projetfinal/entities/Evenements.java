@@ -22,15 +22,12 @@ public class Evenements {
 	private String nom;
 	private Date date;
 	private String adresse;
-	private String recurrence;
-	private String niveau;
+	private String nomActivite;
 	private String description;
 	private Integer nbMin;
 	private Integer nbMax;
-	public String nomActivite;
+	private String niveau;
 	
-	@ManyToOne
-	private Activites activite;
 	
 	@ManyToOne
 	private Membres createur;
