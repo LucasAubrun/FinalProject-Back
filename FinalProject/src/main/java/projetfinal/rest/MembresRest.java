@@ -1,5 +1,6 @@
 package projetfinal.rest;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,6 +95,11 @@ public class MembresRest {
 		return membreRepo.getPhotoprofilById(id);
 	}
 
+	@GetMapping("membre/id/{mail}")
+	public List<Membres> findIdByMail(@PathVariable String mail){
+		return membreRepo.findIdByMail(mail);
+	}
+	
 }
 
 

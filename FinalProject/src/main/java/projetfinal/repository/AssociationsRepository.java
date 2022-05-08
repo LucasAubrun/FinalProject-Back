@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 import projetfinal.entities.Associations;
+import projetfinal.entities.Participants;
 
 
 public interface AssociationsRepository extends CrudRepository<Associations, Long> {
@@ -16,7 +17,6 @@ public interface AssociationsRepository extends CrudRepository<Associations, Lon
 	public List<Associations> findByMembresId(Long id);
 	
 	public List<Associations> findByEquipesId(Long id);
-
 
 	
 	
