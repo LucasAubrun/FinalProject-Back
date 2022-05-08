@@ -36,12 +36,29 @@ public class MembresRest {
 	public Optional<Membres> getMembreByMailAndMdp(@RequestBody Membres m) {
 		return membreRepo.findByMailAndMdp(m.getMail(), m.getMdp());
 	}
+	 
+	@GetMapping("membre/get/leaderboard")
+	public Iterable<Membres> getMembreOrderByScore() {
+		return membreRepo.findAllByOrderByScoreDesc();
+	}
 	
 	@GetMapping("membre/get/all")
 	public Iterable<Membres> getAllMembre() {
 		return membreRepo.findAll();
 	}
 	
+	@PostMapping("membre/edit/{id}")
+	public Membres setMembre(@RequestBody Membres newM, @PathVariable Long id) {
+		Membres m = membreRepo.findById(id).get();
+		m.setNom(newM.getNom());
+		m.setPrenom(newM.getPrenom());
+		m.setMail(newM.getMail());
+		m.setDateNaissance(newM.getDateNaissance());
+		m.setNote(newM.getNote());
+		m.setMdp(newM.getMdp());
+		return membreRepo.save(m);
+	}
+
 	@PatchMapping("membre/set/score/{id}")
 	public Membres setScore(@PathVariable Long id, @RequestBody Integer score) {
 		Membres m = membreRepo.findById(id).get();

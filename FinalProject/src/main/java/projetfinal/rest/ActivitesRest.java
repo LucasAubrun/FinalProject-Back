@@ -48,6 +48,7 @@ public class ActivitesRest {
 		return actiRepo.findByNom(nom);
 	}
 	
+	
 	@GetMapping("activites/id")
 	public Optional<Activites> id(@RequestBody Long id){
 		return actiRepo.findById(id);
