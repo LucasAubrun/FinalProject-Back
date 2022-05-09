@@ -168,6 +168,8 @@ public class EvenementsRest {
 		Date now = new Date();
 		return eventRepo.getByDateAfter(id, now);
 	}
+	
+	
 /*	@GetMapping("evenements/membres/nom/{nom}")
 	public List<Evenements> FindEvenementsByMembresnom(@PathVariable String nom){
 		return eventRepo.findByMembresNom(nom);
