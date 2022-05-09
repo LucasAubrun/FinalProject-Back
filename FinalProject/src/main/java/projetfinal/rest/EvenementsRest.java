@@ -34,9 +34,6 @@ public class EvenementsRest {
 	
 	@Autowired
 	private EvenementsRepository eventRepo;
-	
-	@Autowired
-	private ActivitesRepository activiteRepo;
 
 	
 	@GetMapping("evenements/id/{id}")
