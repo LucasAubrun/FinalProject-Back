@@ -34,9 +34,6 @@ public class EvenementsRest {
 	
 	@Autowired
 	private EvenementsRepository eventRepo;
-	
-	@Autowired
-	private ActivitesRepository activiteRepo;
 
 	
 	@GetMapping("evenements/id/{id}")
@@ -113,7 +110,7 @@ public class EvenementsRest {
 		return eventRepo.findByNomActivite(nomActivite);
 	}
 	
-	///////////////////////////////////////////
+	/////////////////////////////////////////////
 	
 	//@PostMapping("Evenements")
 	//public Evenements saveEvenement(@RequestBody Evenements e, Activites.nom n) {
@@ -155,9 +152,25 @@ public class EvenementsRest {
 	}
 	//Trouver les équipes d'un membre
 	@GetMapping("evenements/membres/{id}")
-	public List<Evenements> FindEvenementsByCreateurId(@PathVariable long id){
+	public List<Evenements> FindEvenementsByCreateurId(@PathVariable Long id){
 		return eventRepo.findByCreateurId(id);
 	}
 	
+	@GetMapping("evenements/get/before/{id}")
+	public List<Evenements> getByDateBefore(@PathVariable Long id) {
+		Date now = new Date();
+		return eventRepo.getByDateBefore(id, now);
+	}
+	
+	@GetMapping("evenements/get/after/{id}")
+	public List<Evenements> getByDateAfter(@PathVariable Long id) {
+		Date now = new Date();
+		return eventRepo.getByDateAfter(id, now);
+	}
+/*	@GetMapping("evenements/membres/nom/{nom}")
+	public List<Evenements> FindEvenementsByMembresnom(@PathVariable String nom){
+		return eventRepo.findByMembresNom(nom);
+	}*/
+
 }
 	

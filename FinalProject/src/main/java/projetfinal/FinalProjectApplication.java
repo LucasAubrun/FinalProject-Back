@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import projetfinal.entities.Activites;
 import projetfinal.entities.Admins;
 import projetfinal.entities.Amis;
+import projetfinal.entities.AssociationEqEv;
 import projetfinal.entities.Associations;
 import projetfinal.entities.Equipes;
 import projetfinal.entities.Evenements;
@@ -16,6 +17,7 @@ import projetfinal.entities.Participants;
 import projetfinal.repository.ActivitesRepository;
 import projetfinal.repository.AdminsRepository;
 import projetfinal.repository.AmisRepository;
+import projetfinal.repository.AssociationEqEvRepository;
 import projetfinal.repository.AssociationsRepository;
 import projetfinal.repository.EquipesRepository;
 import projetfinal.repository.MembresRepository;
@@ -68,6 +70,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 	@Autowired
 	private AmisRepository amisRepo;
 	
+	@Autowired
+	private AssociationEqEvRepository assoEqEvRepo;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(FinalProjectApplication.class, args);
 		System.out.println("lancement est terminé");
@@ -79,7 +84,13 @@ public class FinalProjectApplication implements CommandLineRunner {
 		System.out.println("lancement en cours");
 
 		DateFormat d = new SimpleDateFormat("dd/MM/yyyy");  //a supprimer avant de pull (création pour équipe)
-		Date date1 = d.parse("14/01/1997");	  //a supprimer avant de pull	
+		Date date1 = d.parse("14/01/1997");
+		Date date2 = d.parse("12/05/2022");
+		Date date3 = d.parse("14/05/2022");
+		Date date4 = d.parse("17/05/2022");
+		Date date5 = d.parse("19/05/2022");
+		Date date6 = d.parse("21/05/2022");
+		Date date7 = d.parse("24/05/2022");//a supprimer avant de pull	
 		
 		//Membres m1 = new Membres( null, "Member1", "Luidi", date1, "m1@mario",  "m1", 15, 10, 1); //à supprimer créé pour l'équipe
 		//Membres m2 = new Membres( null, "Member2", "loukal", date1, "m2@mario", "m2", 15, 10, 2); //à supprimer créé pour l'équipe
@@ -146,20 +157,34 @@ public class FinalProjectApplication implements CommandLineRunner {
 		actiRepo.save(act3);
 		actiRepo.save(act4);
 		
-		Evenements ev1 = new Evenements( null, "nom1", date1, "chez oim","Grosse ambiance","toutes les secondes","tout", 12, 100, "Che pa", act1, m1); //à supprimer créé pour l'évent
-		Evenements ev2 = new Evenements( null, "nom2", date1, "chez twa","que du love","h24","expert", 2 , 2, "miam", act1, m1); //à supprimer créé pour l'évent
-		Evenements ev3 = new Evenements( null, "nom3", date1, "chez","quegerger","h2xcc","expert", 2 , 2, "miam", act1, m1); //à supprimer créé pour l'évent
+
+		Evenements ev1 = new Evenements( null, "Match de foot ce Week-End", date5, "Stade","Football", "petit match de foot à 11 contre 11, niveau correct sans pretention", 22, 28, false, "Intermédiaire", m1); //à supprimer créé pour l'évent
+		Evenements ev2 = new Evenements( null, "Rencontre autour d'un match de basket", date2, "Gymnase","Basket","Match de basket pour faire des rencontres", 10 , 16, false, "debutant", m2); //à supprimer créé pour l'évent
+		Evenements ev3 = new Evenements( null, "Apres midi jeux de cartes", date3, "chez moi","Tarot","Petite apres-midi detente", 3 , 5, false, "debutant", m3); //à supprimer créé pour l'évent
+		Evenements ev4 = new Evenements( null, "Tryhard FIFA", date4, "A la maison","fifa", "Objectif: s'ameliorer en affrontant des machines", 2, 6, false, "Expert", m4);
+		
+
 		eventRepo.save(ev1);
 		eventRepo.save(ev2);
 		eventRepo.save(ev3);
+		eventRepo.save(ev4);
 		
 		Admins ad1 = new Admins(null, "Lige", "Terence", "lat@gmail.com", "azerty", "Admin1");
 		adminRepo.save(ad1);
 		
 		Participants p1 = new Participants(null, m1, ev1);
 		Participants p2 = new Participants(null, m1, ev2);
+		Participants p3 = new Participants(null, m1, ev3);
+		Participants p4 = new Participants(null, m2, ev2);
+		Participants p5 = new Participants(null, m3, ev3);
+		Participants p6 = new Participants(null, m4, ev4);
 		partRepo.save(p1);
-		partRepo.save(p2); 
+		partRepo.save(p2);
+		partRepo.save(p3);
+		partRepo.save(p4);
+		partRepo.save(p5);
+		partRepo.save(p6);
+		
 		
 		Messages mes1 = new Messages(null, "Salut Clara", false, m1, m2);
 		Messages mes2 = new Messages(null, "Salut Clara, je pense que je vais manger un gâteau, est-ce que tu en veux aussi ? ce serait cool mdr il est au chocolat et je sais que t'aime pas ça", false, m1, m2);
@@ -177,6 +202,16 @@ public class FinalProjectApplication implements CommandLineRunner {
 		amisRepo.save(amitie4);
 		amisRepo.save(amitie5);
 		
+
+		AssociationEqEv aev1 = new AssociationEqEv( null, ev1, e3);//à supprimer créé pour l'équipe
+		AssociationEqEv aev2 = new AssociationEqEv( null, ev2, e2);//à supprimer créé pour l'équipe 
+		assoEqEvRepo.save(aev1);//à supprimer créé pour l'équipe
+		assoEqEvRepo.save(aev2);//à supprimer créé pour l'équipe
 		
-	}//
+		eventRepo.getByDateBefore((long) 1, new Date()).forEach(e -> {
+			System.out.println(e.toString());
+		});;
+
+	}
 }
+

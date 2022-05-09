@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import projetfinal.entities.Activites;
+import projetfinal.entities.Equipes;
 import projetfinal.entities.Membres;
 
 public interface MembresRepository extends CrudRepository<Membres, Long> {
@@ -20,6 +21,9 @@ public interface MembresRepository extends CrudRepository<Membres, Long> {
 
 	@Query("SELECT m.photoprofil FROM Membres m WHERE m.id =?1")
 	public Optional<Membres> getPhotoprofilById(Long id);
+	
+	public List<Membres> findIdByMail(String mail);
+	
 
 
 }
