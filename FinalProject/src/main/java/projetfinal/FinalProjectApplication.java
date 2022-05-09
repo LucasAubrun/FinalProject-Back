@@ -182,6 +182,7 @@ public class FinalProjectApplication implements CommandLineRunner {
 		amisRepo.save(amitie4);
 		amisRepo.save(amitie5);
 		
+
 		AssociationEqEv aev1 = new AssociationEqEv( null, ev1, e3);//à supprimer créé pour l'équipe
 		AssociationEqEv aev2 = new AssociationEqEv( null, ev2, e2);//à supprimer créé pour l'équipe 
 		assoEqEvRepo.save(aev1);//à supprimer créé pour l'équipe
@@ -190,3 +191,4 @@ public class FinalProjectApplication implements CommandLineRunner {
 		
 	}
 }
+

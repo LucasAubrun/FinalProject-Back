@@ -9,6 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import projetfinal.entities.Evenements;
 import projetfinal.entities.Activites;
 import projetfinal.entities.Associations;
+import projetfinal.entities.Equipes;
 import projetfinal.entities.Membres;
 
 public interface EvenementsRepository extends CrudRepository<Evenements, Long> {
@@ -25,5 +26,6 @@ public interface EvenementsRepository extends CrudRepository<Evenements, Long> {
 	public List<Evenements> findByDateBefore(Date date1);
 	public List<Evenements> findByDateAfter(Date date1);
 	
+/*	public List<Evenements> findByMembresNom(String nom);*/
 
 }

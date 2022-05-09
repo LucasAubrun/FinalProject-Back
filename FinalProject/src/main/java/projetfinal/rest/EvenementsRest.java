@@ -113,7 +113,7 @@ public class EvenementsRest {
 		return eventRepo.findByNomActivite(nomActivite);
 	}
 	
-	///////////////////////////////////////////
+	/////////////////////////////////////////////
 	
 	//@PostMapping("Evenements")
 	//public Evenements saveEvenement(@RequestBody Evenements e, Activites.nom n) {
@@ -168,5 +168,10 @@ public class EvenementsRest {
 	public List<Evenements> getByDateAfter(@RequestBody Date date1, @PathVariable Long id) {
 	return eventRepo.findByDateAfter(date1);
 	}
+/*	@GetMapping("evenements/membres/nom/{nom}")
+	public List<Evenements> FindEvenementsByMembresnom(@PathVariable String nom){
+		return eventRepo.findByMembresNom(nom);
+	}*/
+
 }
 	
