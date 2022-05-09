@@ -28,6 +28,7 @@ public class Evenements {
 	private Integer nbMin;
 	private Integer nbMax;
 	public String nomActivite;
+	public boolean fini;
 	
 	@ManyToOne
 	private Activites activite;

@@ -22,6 +22,8 @@ public interface EvenementsRepository extends CrudRepository<Evenements, Long> {
 	public List<Evenements> findByCreateurId(Long id);
 	//public List<Evenements> findByRandId2(Long id);
 	//public Evenements findByRandId(Long id);
+	public List<Evenements> findByDateBefore(Date date1);
+	public List<Evenements> findByDateAfter(Date date1);
 	
 
 }

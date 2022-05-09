@@ -155,9 +155,18 @@ public class EvenementsRest {
 	}
 	//Trouver les équipes d'un membre
 	@GetMapping("evenements/membres/{id}")
-	public List<Evenements> FindEvenementsByCreateurId(@PathVariable long id){
+	public List<Evenements> FindEvenementsByCreateurId(@PathVariable Long id){
 		return eventRepo.findByCreateurId(id);
 	}
 	
+	@GetMapping("evenements/get/before/{id}")
+	public List<Evenements> getByDateBefore(@RequestBody Date date1, @PathVariable Long id) {
+	return eventRepo.findByDateBefore(date1);
+	}
+	
+	@GetMapping("evenements/get/after/{id}")
+	public List<Evenements> getByDateAfter(@RequestBody Date date1, @PathVariable Long id) {
+	return eventRepo.findByDateAfter(date1);
+	}
 }
 	
