@@ -162,7 +162,6 @@ public class FinalProjectApplication implements CommandLineRunner {
 		Evenements ev2 = new Evenements( null, "Rencontre autour d'un match de basket", date2, "Gymnase","Basket","Match de basket pour faire des rencontres", 10 , 16, false, "debutant", m2); //à supprimer créé pour l'évent
 		Evenements ev3 = new Evenements( null, "Apres midi jeux de cartes", date3, "chez moi","Tarot","Petite apres-midi detente", 3 , 5, false, "debutant", m3); //à supprimer créé pour l'évent
 		Evenements ev4 = new Evenements( null, "Tryhard FIFA", date4, "A la maison","fifa", "Objectif: s'ameliorer en affrontant des machines", 2, 6, false, "Expert", m4);
-		
 
 		eventRepo.save(ev1);
 		eventRepo.save(ev2);

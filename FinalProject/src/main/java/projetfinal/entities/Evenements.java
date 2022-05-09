@@ -29,9 +29,6 @@ public class Evenements {
 	public boolean fini;
 	private String niveau;
 
-	
-	
-	
 	@ManyToOne
 	private Membres createur;
 
