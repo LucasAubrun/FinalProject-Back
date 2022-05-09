@@ -81,7 +81,7 @@ public class EvenementsRest {
 		return eventRepo.findAll();
 	}
 	
-	@GetMapping("evenements/{nom}")
+	@GetMapping("evenements/nom/{nom}")
 	public List<Evenements> EventByNom(@PathVariable String nom) {
 		return eventRepo.findByNom(nom);
 	}
@@ -111,7 +111,7 @@ public class EvenementsRest {
 		return eventRepo.findByNomActivite(nomActivite);
 	}
 	
-	///////////////////////////////////////////
+	/////////////////////////////////////////////
 	
 	//@PostMapping("Evenements")
 	//public Evenements saveEvenement(@RequestBody Evenements e, Activites.nom n) {
@@ -155,6 +155,11 @@ public class EvenementsRest {
 	@GetMapping("evenements/membres/{id}")
 	public List<Evenements> FindEvenementsByMembresid(@PathVariable long id){
 		return eventRepo.findByMembresId(id);
+	}
+	
+	@GetMapping("evenements/membres/nom/{nom}")
+	public List<Evenements> FindEvenementsByMembresnom(@PathVariable String nom){
+		return eventRepo.findByMembresNom(nom);
 	}
 	
 }

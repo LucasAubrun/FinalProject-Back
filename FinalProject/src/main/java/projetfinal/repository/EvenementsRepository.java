@@ -9,6 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import projetfinal.entities.Evenements;
 import projetfinal.entities.Activites;
 import projetfinal.entities.Associations;
+import projetfinal.entities.Equipes;
 import projetfinal.entities.Membres;
 
 public interface EvenementsRepository extends CrudRepository<Evenements, Long> {
@@ -22,6 +23,6 @@ public interface EvenementsRepository extends CrudRepository<Evenements, Long> {
 	public List<Evenements> findByMembresId(Long id);
 	//public List<Evenements> findByRandId2(Long id);
 	//public Evenements findByRandId(Long id);
-	
+	public List<Evenements> findByMembresNom(String nom);
 
 }
