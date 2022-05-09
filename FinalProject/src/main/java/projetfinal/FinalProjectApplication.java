@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import projetfinal.entities.Activites;
 import projetfinal.entities.Admins;
 import projetfinal.entities.Amis;
+import projetfinal.entities.AssociationEqEv;
 import projetfinal.entities.Associations;
 import projetfinal.entities.Equipes;
 import projetfinal.entities.Evenements;
@@ -16,6 +17,7 @@ import projetfinal.entities.Participants;
 import projetfinal.repository.ActivitesRepository;
 import projetfinal.repository.AdminsRepository;
 import projetfinal.repository.AmisRepository;
+import projetfinal.repository.AssociationEqEvRepository;
 import projetfinal.repository.AssociationsRepository;
 import projetfinal.repository.EquipesRepository;
 import projetfinal.repository.MembresRepository;
@@ -67,6 +69,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 	
 	@Autowired
 	private AmisRepository amisRepo;
+	
+	@Autowired
+	private AssociationEqEvRepository assoEqEvRepo;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(FinalProjectApplication.class, args);
@@ -195,6 +200,13 @@ public class FinalProjectApplication implements CommandLineRunner {
 		amisRepo.save(amitie4);
 		amisRepo.save(amitie5);
 		
+
+		AssociationEqEv aev1 = new AssociationEqEv( null, ev1, e3);//à supprimer créé pour l'équipe
+		AssociationEqEv aev2 = new AssociationEqEv( null, ev2, e2);//à supprimer créé pour l'équipe 
+		assoEqEvRepo.save(aev1);//à supprimer créé pour l'équipe
+		assoEqEvRepo.save(aev2);//à supprimer créé pour l'équipe
 		
-	}//
+		
+	}
 }
+

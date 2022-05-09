@@ -110,7 +110,7 @@ public class EvenementsRest {
 		return eventRepo.findByNomActivite(nomActivite);
 	}
 	
-	///////////////////////////////////////////
+	/////////////////////////////////////////////
 	
 	//@PostMapping("Evenements")
 	//public Evenements saveEvenement(@RequestBody Evenements e, Activites.nom n) {
@@ -155,6 +155,11 @@ public class EvenementsRest {
 	public List<Evenements> FindEvenementsByCreateurId(@PathVariable long id){
 		return eventRepo.findByCreateurId(id);
 	}
+	
+/*	@GetMapping("evenements/membres/nom/{nom}")
+	public List<Evenements> FindEvenementsByMembresnom(@PathVariable String nom){
+		return eventRepo.findByMembresNom(nom);
+	}*/
 	
 }
 	

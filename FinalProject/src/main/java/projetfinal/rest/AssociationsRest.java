@@ -5,14 +5,17 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import projetfinal.entities.Associations;
 import projetfinal.entities.Membres;
+import projetfinal.entities.Participants;
 import projetfinal.repository.AssociationsRepository;
 
 @RestController @CrossOrigin("*")
@@ -43,5 +46,16 @@ public class AssociationsRest {
 	public List<Associations> FindAssociationsByEquipesId(@PathVariable long id){
 		return assoRepo.findByEquipesId(id);
 	}
-
-}
+	
+/*	@DeleteMapping("Associations/supprimer/{id}")
+	public boolean deleteEvent(@PathVariable Long id) {
+		Optional<Associations> p = assoRepo.findById(id);
+		if(p.isPresent() ) {
+			assoRepo.deleteById(id);
+			return true;
+		}else {
+			return false;
+		}
+	}*/
+	
+}//
