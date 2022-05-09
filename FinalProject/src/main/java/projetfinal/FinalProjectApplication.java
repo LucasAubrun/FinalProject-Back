@@ -85,9 +85,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 
 		DateFormat d = new SimpleDateFormat("dd/MM/yyyy");  //a supprimer avant de pull (création pour équipe)
 		Date date1 = d.parse("14/01/1997");
-		Date date2 = d.parse("12/05/2022");
-		Date date3 = d.parse("14/05/2022");
-		Date date4 = d.parse("17/05/2022");
+		Date date2 = d.parse("12/05/2001");
+		Date date3 = d.parse("14/05/2005");
+		Date date4 = d.parse("17/05/2019");
 		Date date5 = d.parse("19/05/2022");
 		Date date6 = d.parse("21/05/2022");
 		Date date7 = d.parse("24/05/2022");//a supprimer avant de pull	

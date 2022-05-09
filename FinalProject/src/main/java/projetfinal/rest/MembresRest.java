@@ -63,7 +63,8 @@ public class MembresRest {
 	@PatchMapping("membre/set/score/{id}")
 	public Membres setScore(@PathVariable Long id, @RequestBody Integer score) {
 		Membres m = membreRepo.findById(id).get();
-		m.setScore(score);
+		Integer s = m.getScore();
+		m.setScore(score + s);
 		return membreRepo.save(m);
 	}
 	

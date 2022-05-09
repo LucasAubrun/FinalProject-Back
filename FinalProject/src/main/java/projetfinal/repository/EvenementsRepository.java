@@ -28,8 +28,7 @@ public interface EvenementsRepository extends CrudRepository<Evenements, Long> {
 	@Query("SELECT e FROM Evenements e, Participants p "
 			+ "WHERE p.membres.id =?1 "
 			+ "AND p.evenements.id = e.id "
-			+ "AND e.date < ?2 "
-			+ "AND e.fini = false")
+			+ "AND e.date < ?2 ")
 	public List<Evenements> getByDateBefore(Long id, Date now);
 	
 	@Query("SELECT e FROM Evenements e, Participants p "
