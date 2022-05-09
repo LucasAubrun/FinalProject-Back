@@ -160,13 +160,15 @@ public class EvenementsRest {
 	}
 	
 	@GetMapping("evenements/get/before/{id}")
-	public List<Evenements> getByDateBefore(@RequestBody Date date1, @PathVariable Long id) {
-	return eventRepo.findByDateBefore(date1);
+	public List<Evenements> getByDateBefore(@PathVariable Long id) {
+		Date now = new Date();
+		return eventRepo.getByDateBefore(id, now);
 	}
 	
 	@GetMapping("evenements/get/after/{id}")
-	public List<Evenements> getByDateAfter(@RequestBody Date date1, @PathVariable Long id) {
-	return eventRepo.findByDateAfter(date1);
+	public List<Evenements> getByDateAfter(@PathVariable Long id) {
+		Date now = new Date();
+		return eventRepo.getByDateAfter(id, now);
 	}
 /*	@GetMapping("evenements/membres/nom/{nom}")
 	public List<Evenements> FindEvenementsByMembresnom(@PathVariable String nom){

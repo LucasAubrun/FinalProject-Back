@@ -83,8 +83,9 @@ public class FinalProjectApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		System.out.println("lancement en cours");
 
-		DateFormat d = new SimpleDateFormat("dd/MM/yyyy");  //a supprimer avant de pull (création pour équipe)
-		Date date1 = d.parse("14/01/1997");	  //a supprimer avant de pull	
+		DateFormat d = new SimpleDateFormat("yyyy-MM-dd");  //a supprimer avant de pull (création pour équipe)
+		Date date1 = d.parse("1997-01-14");	  //a supprimer avant de pull
+		Date date2 = d.parse("2050-01-14");	  //a supprimer avant de pull
 		
 		//Membres m1 = new Membres( null, "Member1", "Luidi", date1, "m1@mario",  "m1", 15, 10, 1); //à supprimer créé pour l'équipe
 		//Membres m2 = new Membres( null, "Member2", "loukal", date1, "m2@mario", "m2", 15, 10, 2); //à supprimer créé pour l'équipe
@@ -152,8 +153,8 @@ public class FinalProjectApplication implements CommandLineRunner {
 		actiRepo.save(act4);
 		
 		Evenements ev1 = new Evenements( null, "nom1", date1, "chez oim","Grosse ambiance","toutes les secondes","tout", 12, 100, "Che pa", false, act1, m1); //à supprimer créé pour l'évent
-		Evenements ev2 = new Evenements( null, "nom2", date1, "chez twa","que du love","h24","expert", 2 , 2, "miam", false, act1, m1); //à supprimer créé pour l'évent
-		Evenements ev3 = new Evenements( null, "nom3", date1, "chez","quegerger","h2xcc","expert", 2 , 2, "miam", false, act1, m1); //à supprimer créé pour l'évent
+		Evenements ev2 = new Evenements( null, "nom2", date2, "chez twa","que du love","h24","expert", 2 , 2, "miam", false, act1, m1); //à supprimer créé pour l'évent
+		Evenements ev3 = new Evenements( null, "nom3", date2, "chez","quegerger","h2xcc","expert", 2 , 2, "miam", false, act1, m1); //à supprimer créé pour l'évent
 		eventRepo.save(ev1);
 		eventRepo.save(ev2);
 		eventRepo.save(ev3);
@@ -188,7 +189,10 @@ public class FinalProjectApplication implements CommandLineRunner {
 		assoEqEvRepo.save(aev1);//à supprimer créé pour l'équipe
 		assoEqEvRepo.save(aev2);//à supprimer créé pour l'équipe
 		
-		
+		eventRepo.getByDateBefore((long) 1, new Date()).forEach(e -> {
+			System.out.println(e.toString());
+		});;
+
 	}
 }
 
